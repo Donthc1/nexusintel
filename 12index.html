@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NEXUS INTEL — Investigação Digital Prioritária</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="NEXUS INTEL — Investigação digital privada, fraudes, infidelidade, localização. Sigilo absoluto."/>
+  <style>
+    :root{
+      --accent: #1ea7ff;
+      --accent-2: #0ea0d6;
+      --bg-900: #04060a;
+      --bg-800: #071323;
+      --muted: rgba(255,255,255,0.66);
+      --card-bg: rgba(255,255,255,0.03);
+      --glass-border: rgba(30,167,255,0.16);
+      --white: #e9f2fb;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:linear-gradient(180deg,var(--bg-900),var(--bg-800));color:var(--white);
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;line-height:1.45;
+      padding-bottom:120px;overflow-y:scroll;
+    }
+
+    /* textures */
+    .circuit{position:fixed;inset:0;pointer-events:none;opacity:0.08;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="%231ea7ff" stop-opacity="0.35"/><stop offset="1" stop-color="%230ea0d6" stop-opacity="0.10"/></linearGradient></defs><g fill="none" stroke="url(%23g)" stroke-width="1.1"><path d="M60 150h200v60h120v-30h180"/><path d="M420 220v100h80v-40h160"/><path d="M120 380h140v40h200v-20h120"/><path d="M560 600h-120v-60h-180v40h-100"/><circle cx="220" cy="220" r="8"/><circle cx="480" cy="380" r="6"/><circle cx="700" cy="600" r="8"/></g></svg>');background-size:900px 900px;mix-blend-mode:screen;z-index:0}
+    .digital-noise{position:fixed;inset:0;pointer-events:none;opacity:0.10;mix-blend-mode:overlay;z-index:0;background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 2px);animation:noiseMove 22s linear infinite}
+    @keyframes noiseMove{0%{transform:translateY(0)}100%{transform:translateY(40px)}}
+
+    .container{max-width:1150px;margin:0 auto;padding:22px 18px;position:relative;z-index:10}
+
+    /* header - only brand */
+    header{display:flex;align-items:center;justify-content:flex-start;margin-top:8px;margin-bottom:6px}
+    .brand{font-weight:900;letter-spacing:1px;font-size:34px}
+
+    /* HERO - title isolated and buttons under title */
+    .hero{margin-top:6px}
+    .title-wrap{
+      padding:22px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(8px);
+      box-shadow:0 10px 30px rgba(2,8,20,0.6);
+    }
+    .kicker{color:var(--accent);font-weight:700;font-size:13px}
+    .main-title{font-size:52px;margin:10px 0 12px;font-weight:900;line-height:1.02}
+    .lead{font-size:15px;color:var(--muted);margin:0 0 16px;max-width:92%}
+
+    /* buttons under title */
+    .title-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+    .btn{padding:9px 14px;border-radius:999px;font-weight:700;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted);cursor:pointer}
+    .cta-main{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#01202a;border:none;padding:12px 20px;border-radius:12px;font-weight:900;box-shadow:0 8px 30px rgba(14,160,214,0.14);transition:transform .14s}
+    .cta-main:hover{transform:translateY(-3px)}
+
+    /* quick panel moved below title area on desktop */
+    .quick{margin-top:18px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+
+    /* content cards */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .card{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(30,167,255,0.08);box-shadow:0 6px 20px rgba(2,8,20,0.55)}
+    .card h3{margin:8px 0 8px;font-size:18px}
+    .card p{color:var(--muted);font-size:14px;margin:0}
+    .num{display:inline-block;font-weight:800;color:var(--accent);background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:10px;font-size:18px;margin-bottom:8px}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .service-card{padding:10px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+
+    .proofs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+    .proof-box{padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+
+    /* contact form */
+    .form{margin-top:18px;padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);max-width:760px}
+    .form .row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .form input,.form textarea,.form select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .form textarea{min-height:100px}
+    .form .submit{display:inline-block;padding:12px 18px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042b33;font-weight:800;cursor:pointer}
+
+    /* select and options readability */
+    select{color:var(--white); background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.2)); border:1px solid rgba(255,255,255,0.06)}
+    select option{background:#071323; color:var(--white)}
+    select:focus, select:hover{outline:none; box-shadow:0 6px 20px rgba(14,160,214,0.06)}
+
+    /* floating whatsapp */
+    .floating-wa{position:fixed;right:18px;bottom:18px;z-index:60;border-radius:999px;padding:14px 18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042b33;font-weight:900;text-decoration:none;box-shadow:0 12px 40px rgba(14,160,214,0.15)}
+
+    /* modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:none;align-items:center;justify-content:center;z-index:120}
+    .modal .box{width:96%;max-width:900px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(0,0,0,0.6);color:var(--white)}
+
+    footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center;padding:30px 0}
+
+    /* responsiveness */
+    @media (max-width:1000px){
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .proofs{grid-template-columns:1fr}
+      .hero-left h1{font-size:38px}
+      .brand{font-size:28px}
+      .main-title{font-size:40px}
+    }
+    @media (max-width:560px){
+      .grid-3{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr}
+      .hero-left h1{font-size:30px}
+      .brand{font-size:22px}
+      .main-title{font-size:30px}
+      header{padding-bottom:4px}
+      .title-wrap{padding:16px}
+    }
+  </style>
+</head>
+<body>
+  <div class="circuit" aria-hidden="true"></div>
+  <div class="digital-noise" aria-hidden="true"></div>
+
+  <div class="container">
+    <!-- Header with only brand (title isolation requirement) -->
+    <header>
+      <div class="brand">NEXUS INTEL</div>
+    </header>
+
+    <!-- HERO / Title block -->
+    <main class="hero">
+      <div class="title-wrap" role="region" aria-labelledby="hero-title">
+        <div class="kicker">SIGILO • PRIORIDADE • RESPOSTA RÁPIDA</div>
+        <div class="main-title" id="hero-title">Investigação Digital Profissional</div>
+        <p class="lead">Atendemos casos urgentes com análise imediata. Rastreio digital, infidelidade, fraudes, golpes e localização com máxima precisão.</p>
+
+        <!-- Buttons under the title -->
+        <div class="title-actions">
+          <button id="btnQuem" class="btn">Quem somos e o que fazemos</button>
+          <button id="btnCTA" class="cta-main">Investigar Agora — Prioridade Imediata</button>
+        </div>
+      </div>
+
+      <!-- quick info panel appears to the right on wide screens, below on narrow -->
+      <aside class="quick" aria-labelledby="quick-h" style="margin-top:12px">
+        <h3 id="quick-h">Contato Rápido</h3>
+        <p>Responda rápido via WhatsApp — confidencial e seguro. Atendimento inicial em 24–48h.</p>
+      </aside>
+
+      <!-- Authority Cards -->
+      <section aria-labelledby="authority" style="width:100%;margin-top:18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+          <h2 id="authority" style="margin:0;font-size:20px">Por que escolher a NEXUS INTEL</h2>
+          <div style="color:var(--muted);font-size:13px">Sigilo • Legalidade • Resultados</div>
+        </div>
+
+        <div class="grid-3" style="margin-top:12px">
+          <div class="card">
+            <div class="num">1</div>
+            <h3>100% Confidencial</h3>
+            <p>Comunicação e arquivos criptografados, acesso restrito ao investigador responsável.</p>
+          </div>
+          <div class="card">
+            <div class="num">2</div>
+            <h3>Análise Técnica</h3>
+            <p>OSINT, varredura digital, rastreamento e validação humana.</p>
+          </div>
+          <div class="card">
+            <div class="num">3</div>
+            <h3>Provas Reais</h3>
+            <p>Relatórios com prints, registros, conexões e timeline estruturada para uso pessoal ou jurídico.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services" style="width:100%;margin-top:18px">
+        <h2 style="margin-top:12px">Serviços Principais</h2>
+        <div class="services">
+          <div class="service-card"><h4>Infidelidade</h4><p>Confirmação digital, padrões e provas.</p></div>
+          <div class="service-card"><h4>Golpes Online</h4><p>Identificação de golpistas e rastreamento.</p></div>
+          <div class="service-card"><h4>Localização</h4><p>Rastreamento digital + OSINT profundo.</p></div>
+        </div>
+      </section>
+
+      <!-- Proofs -->
+      <section id="proofs" style="width:100%;margin-top:18px">
+        <h2>Como entregamos as provas</h2>
+        <div class="proofs">
+          <div class="proof-box">
+            <h4>Relatório Digital (PDF)</h4>
+            <p style="color:var(--muted)">PDF profissional com prints, registros, metadados e linha do tempo.</p>
+            <div class="timeline" aria-hidden="true" style="margin-top:8px">
+              <div class="item"><strong>Coleta</strong> — Identificação e captura de evidências dentro da legalidade.</div>
+              <div class="item"><strong>Validação</strong> — Verificação de autenticidade e contexto.</div>
+              <div class="item"><strong>Entrega</strong> — Arquivo estruturado e anexos prontos para apresentação.</div>
+            </div>
+          </div>
+          <div class="proof-box">
+            <h4>Mapa de Conexões</h4>
+            <p style="color:var(--muted)">Visualização das relações entre perfis, números, interações e horários.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact form -->
+      <section id="contact" style="width:100%;margin-top:18px">
+        <h2 style="margin-bottom:8px">Análise Inicial Prioritária</h2>
+        <form class="form" id="leadForm" novalidate>
+          <div class="row">
+            <input id="nome" placeholder="Nome completo" required>
+            <input id="telefone" placeholder="Celular (com DDD)" required>
+          </div>
+          <div class="row" style="margin-top:8px">
+            <input id="email" placeholder="Email" required>
+            <input id="cidade" placeholder="Cidade / Estado" required>
+          </div>
+          <div class="row" style="margin-top:8px">
+            <select id="tipo" required>
+              <option value="" disabled selected>Tipo de investigação...</option>
+              <option>Infidelidade</option>
+              <option>Golpe Online</option>
+              <option>Localização</option>
+              <option>Verificação de Parceiros</option>
+              <option>Busca de Pessoas</option>
+              <option>Outro</option>
+            </select>
+            <select id="urgencia" required>
+              <option value="" disabled selected>Urgência...</option>
+              <option>Alta (24-72h)</option>
+              <option>Média (7 dias)</option>
+              <option>Baixa</option>
+            </select>
+          </div>
+          <div style="margin-top:8px">
+            <textarea id="resumo" placeholder="Resumo do caso (detalhes importantes)" required></textarea>
+          </div>
+
+          <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
+            <button type="submit" class="form-submit submit">Investigar Agora — Prioridade Imediata</button>
+          </div>
+        </form>
+      </section>
+
+      <footer style="width:100%;margin-top:18px">
+        <div>NEXUS INTEL — Investigação Digital • Sigilo • Provas</div>
+        <div style="margin-top:6px;color:var(--muted)">© <span id="year"></span> Nexus Intel. Todos os direitos reservados.</div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- floating whatsapp -->
+  <a id="floatingWA" class="floating-wa" href="https://wa.me/5511913076990?text=Investigar%20Agora%20--%20Prioridade%20Imediata" target="_blank" rel="noopener">💬 Prioridade Imediata</a>
+
+  <!-- Quem somos modal -->
+  <div class="modal" id="quemModal" role="dialog" aria-modal="true" aria-labelledby="quemTitle">
+    <div class="box" role="document">
+      <button id="closeQuem" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
+      <h3 id="quemTitle">Quem somos e o que fazemos — Nexus Intel</h3>
+      <p style="color:var(--muted)">Resumo institucional... (versão completa disponível no imprimível/baixar)</p>
+      <div style="margin-top:12px;max-height:56vh;overflow:auto;padding-right:6px">
+        <h4>Missão</h4>
+        <p style="color:var(--muted)">Fornecer inteligência digital de alta qualidade com sigilo absoluto.</p>
+        <h4>Metodologias e Tecnologias</h4>
+        <p style="color:var(--muted)">Maltego, Shodan, SpiderFoot, FOCA, Recon-ng e metodologias forenses passivas.</p>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px;justify-content:flex-end">
+        <button id="downloadQuemTxt" class="btn">Baixar .txt</button>
+        <button id="printQuem" class="cta-main">Abrir imprimível / Salvar PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      // set year
+      var yearEl = document.getElementById('year');
+      if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // elements
+      var btnQuem = document.getElementById('btnQuem');
+      var btnCTA = document.getElementById('btnCTA');
+      var floatingWA = document.getElementById('floatingWA');
+      var quemModal = document.getElementById('quemModal');
+      var closeQuem = document.getElementById('closeQuem');
+      var downloadQuemTxt = document.getElementById('downloadQuemTxt');
+      var printQuem = document.getElementById('printQuem');
+      var leadForm = document.getElementById('leadForm');
+
+      function openWhatsAppPrefilled(){
+        var msg = encodeURIComponent('Olá — quero iniciar uma investigação prioritária. Por favor, orientem próximos passos.');
+        var url = 'https://wa.me/5511913076990?text=' + msg;
+        var w = window.open(url, '_blank');
+        if(!w){ alert('Popup bloqueado. Permita popups/abra o link manualmente.'); }
+      }
+
+      if(btnQuem) btnQuem.addEventListener('click', function(){
+        if(quemModal){ quemModal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+      });
+      if(closeQuem) closeQuem.addEventListener('click', function(){ if(quemModal){ quemModal.style.display='none'; document.body.style.overflow='auto'; }});
+      if(downloadQuemTxt) downloadQuemTxt.addEventListener('click', function(){
+        var content = 'NEXUS INTEL - Quem somos\\n\\nMissão:\\nFornecer inteligência digital de alta qualidade com sigilo absoluto.\\n\\nMetodologias: Maltego, Shodan, SpiderFoot, FOCA, Recon-ng.';
+        var blob = new Blob([content], {type:'text/plain'});
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a'); a.href = url; a.download = 'nexus-quem-somos.txt'; document.body.appendChild(a); a.click(); a.remove();
+        URL.revokeObjectURL(url);
+      });
+      if(printQuem) printQuem.addEventListener('click', function(){
+        var html = '<html><head><title>NEXUS INTEL — Quem somos</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:Inter,Arial,Helvetica,sans-serif;padding:20px;color:#061726}h1{color:#0a2340}</style></head><body><h1>NEXUS INTEL — Quem somos</h1><h2>Missão</h2><p>Fornecer inteligência digital de alta qualidade com sigilo absoluto.</p><h2>Metodologias</h2><p>Maltego, Shodan, SpiderFoot, FOCA, Recon-ng e técnicas forenses passivas.</p></body></html>';
+        var w = window.open('', '_blank');
+        if(!w){ alert('Popup bloqueado. Permita popups para abrir a versão imprimível.'); return; }
+        w.document.open(); w.document.write(html); w.document.close();
+        setTimeout(function(){ w.print(); }, 500);
+      });
+
+      if(btnCTA) btnCTA.addEventListener('click', openWhatsAppPrefilled);
+      if(floatingWA) floatingWA.addEventListener('click', function(e){ e.preventDefault(); openWhatsAppPrefilled(); });
+
+      if(leadForm){
+        leadForm.addEventListener('submit', function(e){
+          e.preventDefault();
+          var nome = document.getElementById('nome').value.trim();
+          var telefone = document.getElementById('telefone').value.trim();
+          var email = document.getElementById('email').value.trim();
+          var cidade = document.getElementById('cidade').value.trim();
+          var tipo = document.getElementById('tipo').value;
+          var urgencia = document.getElementById('urgencia').value;
+          var resumo = document.getElementById('resumo').value.trim();
+          if(!nome || !telefone || !email || !cidade || !tipo || !urgencia || !resumo){
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+          }
+          var preview = 'NEXUS INTEL - Lead Prioritário%0A%0ANome: ' + encodeURIComponent(nome) + '%0ACelular: ' + encodeURIComponent(telefone) + '%0AEmail: ' + encodeURIComponent(email) + '%0ACidade: ' + encodeURIComponent(cidade) + '%0ATipo: ' + encodeURIComponent(tipo) + '%0AUrgência: ' + encodeURIComponent(urgencia) + '%0AResumo: ' + encodeURIComponent(resumo.substring(0,800));
+          var w = window.open('https://wa.me/5511913076990?text=' + preview, '_blank');
+          if(!w){ alert('Popup bloqueado. Permita popups/abra o link manualmente.'); return; }
+          setTimeout(function(){ leadForm.reset(); }, 600);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
