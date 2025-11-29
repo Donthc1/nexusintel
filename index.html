@@ -7,35 +7,30 @@
   <meta name="description" content="NEXUS INTEL — Investigação digital profissional: OSINT, forense, localização, fraudes. Atendimento sigiloso.">
   <meta name="theme-color" content="#071323" />
 
-  <!-- Preconnect and preload for better LCP -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <!-- Swiper (carousel) CSS from CDN -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
 
-  <!-- Favicons (make sure these files exist in root) -->
+  <!-- Favicons -->
   <link rel="icon" href="/favicon.ico?v=8">
   <link rel="apple-touch-icon" href="/favicon-256.png?v=8">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=8">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=8">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="NEXUS INTEL — Investigação Digital Profissional" />
   <meta property="og:description" content="Investigação digital, OSINT, localização e relatórios técnicos — Atendimento sigiloso." />
   <meta property="og:image" content="/og-image.png" />
 
-  <!-- JSON-LD Schema (basic LocalBusiness + Reviews) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"LocalBusiness",
     "name":"NEXUS INTEL",
-    "image":["https://YOURDOMAIN.com/og-image.png"],
-    "@id":"https://YOURDOMAIN.com",
-    "url":"https://YOURDOMAIN.com",
+    "image":["https://nexusintel-sec.netlify.app/og-image.png"],
+    "@id":"https://nexusintel-sec.netlify.app",
+    "url":"https://nexusintel-sec.netlify.app",
     "telephone":"+5511913076990",
     "description":"NEXUS INTEL – investigação digital, OSINT, forense e localização. Atendimento sigiloso.",
     "address": {
@@ -68,7 +63,6 @@
   }
   </script>
 
-  <!-- Basic CSS (hero, layout, feedbacks, animations) -->
   <style>
     :root{
       --bg:#030514; --bg2:#071323;
@@ -121,7 +115,6 @@
     .feedbacks-wrap{margin-top:28px}
     .feedbacks-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .feedbacks-header h2{margin:0;font-size:18px}
-    /* Swiper container sizing */
     .swiper{margin-top:14px;padding-bottom:12px}
     .swiper-slide{display:flex;align-items:stretch}
     .feedback-card{
@@ -135,11 +128,9 @@
     .feedback-meta{font-size:13px;color:rgba(220,230,245,0.6)}
     .feedback-badge{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#042a31;padding:6px 8px;border-radius:999px;font-weight:800;display:inline-block;margin-left:8px}
 
-    /* Highlight left bar */
     .feedback-card::before{content:'';position:absolute;left:12px;top:12px;bottom:12px;width:6px;border-radius:6px;background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0.95;transform:translateX(-8px);transition:transform .28s ease}
     .feedback-card:hover::before{transform:translateX(0)}
 
-    /* Desktop grid fallback */
     @media(min-width:980px){
       .services{grid-template-columns:repeat(3,1fr)}
     }
@@ -147,17 +138,44 @@
       .swiper-slide:first-child .feedback-card{min-height:160px}
     }
 
-    /* sticky CTA */
     .sticky-cta{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;flex-direction:column;gap:10px}
     .sticky-cta .btn{display:block}
 
-    /* small helpers */
     .muted{color:var(--muted)}
     .center{text-align:center}
+
+    /* SELECT / OPTION fix for dropdown visibility */
+    /* Force select to use dark background for options and readable text */
+    select{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      color:var(--white);
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+      outline:none;
+    }
+
+    /* Many browsers ignore option styles, but we'll set them to match theme */
+    select option{
+      background: linear-gradient(180deg,var(--bg2),#041427); /* dark background for options */
+      color: var(--white); /* light text */
+      padding:6px 10px;
+    }
+
+    /* On some platforms the dropdown menu uses system UI; this improves contrast on most */
+    @media (prefers-color-scheme: dark) {
+      select, select option { color: var(--white); }
+    }
+
+    /* Improve focus look */
+    select:focus{ box-shadow: 0 4px 20px rgba(14,160,214,0.12); border-color:var(--accent) }
   </style>
 
-  <!-- Google Analytics 4 placeholder (replace G-XXXXXXX) -->
-  <!-- If you do not want analytics, remove this block -->
+  <!-- GA placeholder (replace or remove) -->
   <script>
     (function(){
       window.dataLayer = window.dataLayer || [];
@@ -196,7 +214,7 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="https://wa.me/5511913076990?text=Quero%20prioridade%20imediata">Prioridade Imediata — WhatsApp</a>
         <a class="btn btn-ghost" id="btnOpenQuem">Quem Somos & Método</a>
-        <a class="btn btn-dark" href="#services">Serviços</a>
+        <!-- botão "Serviços" removido conforme solicitado -->
       </div>
 
       <div class="steps" aria-hidden="true">
@@ -206,7 +224,7 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES (still present on page, but no header button linking to it) -->
     <section id="services" class="services" aria-label="Serviços">
       <div class="service-card"><h4>Localização Digital</h4><p>Rastreamento por CPF, telefone, nome completo; cruzamentos técnicos e validação.</p></div>
       <div class="service-card"><h4>Infidelidade Digital</h4><p>Mapeamento e coleta de evidências digitais com cadeia de custódia.</p></div>
@@ -220,7 +238,6 @@
         <div class="muted">Depoimentos verificados por terceiros</div>
       </div>
 
-      <!-- Swiper -->
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -248,7 +265,6 @@
           </div>
         </div>
 
-        <!-- pagination + navigation -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next" style="color:var(--accent)"></div>
         <div class="swiper-button-prev" style="color:var(--accent)"></div>
@@ -259,12 +275,11 @@
     <section style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
       <div style="flex:1;min-width:320px;background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
         <h4 style="margin-top:0">Números</h4>
-        <p style="font-size:28px;margin:6px 0"><span id="reportsCounter">0</span>+ Relatórios entregues</p>
+        <p style="font-size:28px;margin:6px 0"><span id="reportsCounter">128</span>+ Relatórios entregues</p>
         <p class="muted">Casos verificados e relatórios técnicos entregues a clientes nacionais e internacionais.</p>
       </div>
 
       <div style="flex:1;min-width:320px;border-radius:12px;padding:0">
-        <!-- Netlify Form (enable Netlify forms in dashboard) -->
         <form name="initial-contact" method="POST" data-netlify="true" enctype="multipart/form-data" style="background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
           <input type="hidden" name="form-name" value="initial-contact" />
           <label style="display:block;margin-bottom:6px"><small class="muted">Nome completo</small>
@@ -314,18 +329,14 @@
     </div>
   </div>
 
-  <!-- Sticky CTA -->
   <div class="sticky-cta">
     <a class="btn btn-primary" href="https://wa.me/5511913076990?text=Prioridade%20imediata">Prioridade</a>
     <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Quero%20avaliacao%20sigilosa">WhatsApp</a>
   </div>
 
-  <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
-  <!-- Scripts: Swiper init, counters, modal, analytics event tracking -->
   <script>
-    // Initialize Swiper carousel
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 1,
       spaceBetween: 18,
@@ -336,27 +347,18 @@
       breakpoints: { 900: { slidesPerView: 2 } }
     });
 
-    // Animate "reports delivered" counter
     (function(){
       const el = document.getElementById('reportsCounter');
-      const target = 128; // set realistic number or change dynamically
-      let current = 0;
-      const step = Math.max(1, Math.floor(target/80));
-      const int = setInterval(()=>{
-        current += step;
-        if(current >= target){ current = target; clearInterval(int); }
-        el.textContent = current;
-      }, 24);
+      // Valor fixo/real: 128 (já definido)
+      el.textContent = 128;
     })();
 
-    // Modal handling
     const btnOpen = document.getElementById('btnOpenQuem');
     const modal = document.getElementById('modalQuem');
     const btnClose = document.getElementById('closeModal');
     btnOpen && btnOpen.addEventListener('click', ()=>{
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
-      // event tracking
       window.gtag && window.gtag('event','open_quem_somos',{ 'event_category':'engagement' });
     });
     btnClose && btnClose.addEventListener('click', ()=>{
@@ -364,7 +366,6 @@
       document.body.style.overflow = 'auto';
     });
 
-    // Track form submit (Netlify will still process)
     const form = document.querySelector('form[name="initial-contact"]');
     if(form){
       form.addEventListener('submit', ()=> {
@@ -372,7 +373,6 @@
       });
     }
 
-    // Lazy load images if any (example)
     document.addEventListener('DOMContentLoaded',function(){
       const imgs = document.querySelectorAll('img[data-src]');
       const obs = new IntersectionObserver((entries, o)=>{
@@ -386,27 +386,17 @@
       imgs.forEach(img => obs.observe(img));
     });
 
-    // CTA click tracking
     document.querySelectorAll('a[href*="wa.me"]').forEach(a=>{
       a.addEventListener('click',()=> window.gtag && window.gtag('event','click_whatsapp',{ 'event_category':'cta' }));
     });
 
-  </script>
-
-  <!-- Small accessibility helper to close modal with ESC -->
-  <script>
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape'){
-        const modal = document.getElementById('modalQuem');
-        if(modal && modal.style.display === 'flex'){
-          modal.style.display = 'none'; document.body.style.overflow = 'auto';
-        }
-      }
-    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ const modal = document.getElementById('modalQuem'); if(modal && modal.style.display === 'flex'){ modal.style.display = 'none'; document.body.style.overflow = 'auto'; } }});
   </script>
 
 </body>
 </html>
+
+
 
 
 
