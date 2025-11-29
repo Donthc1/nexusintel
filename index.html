@@ -4,313 +4,257 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>NEXUS INTEL — Investigação Digital Prioritária</title>
-  <meta name="description" content="NEXUS INTEL — Inteligência digital, rastreamento, fraudes, investigação e localização com sigilo e provas verificáveis." />
+  <meta name="description" content="NEXUS INTEL — Investigação digital profissional (localização, infidelidade, fraudes). Atendimento sigiloso e prioridade imediata. Fale conosco no WhatsApp." />
+  <meta name="keywords" content="investigação digital, OSINT, localizar pessoas, CPF, telefone, infidelidade, fraudes, relatório forense" />
+  <meta name="theme-color" content="#071323" />
 
-  <!-- Open Graph (Facebook / WhatsApp / Instagram preview) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="NEXUS INTEL — Investigação Digital Prioritária" />
-  <meta property="og:description" content="Investigação digital profissional: infidelidade, golpes, localização e fraudes. Sigilo, rapidez e relatórios verificáveis." />
+  <meta property="og:description" content="Serviços de investigação digital com sigilo, prioridades imediatas e relatórios técnicos. Consultas por CPF, telefone e nome." />
   <meta property="og:url" content="https://nexusintel-sec.netlify.app/" />
   <meta property="og:image" content="/og-image.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="NEXUS INTEL — Investigação Digital Prioritária" />
-  <meta name="twitter:description" content="Investigação digital profissional: infidelidade, golpes, localização e fraudes. Sigilo, rapidez e relatórios verificáveis." />
+  <meta name="twitter:description" content="Serviços de investigação digital com sigilo, prioridades imediatas e relatórios técnicos. Consultas por CPF, telefone e nome." />
   <meta name="twitter:image" content="/og-image.png" />
 
-  <!-- FAVICON (arquivos devem estar na raiz: favicon.ico, favicon-16.png, favicon-32.png, ...) -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=5">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
-  <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png?v=5">
-  <link rel="icon" type="image/png" sizes="128x128" href="/favicon-128.png?v=5">
-  <link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png?v=5">
-  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png?v=5">
-  <link rel="apple-touch-icon" href="/favicon-256.png?v=5">
+  <!-- FAVICONS (verifique que os arquivos estão na raiz) -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=6">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=6">
+  <link rel="apple-touch-icon" href="/favicon-256.png?v=6">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=6">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=6">
 
-  <!-- JSON-LD (Schema.org) -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Nexus Intel",
-    "url": "https://nexusintel-sec.netlify.app/",
-    "logo": "https://nexusintel-sec.netlify.app/favicon-256.png",
-    "description": "Serviços de investigação digital: OSINT, rastreamento, análises e relatórios verificáveis com sigilo.",
-    "telephone": "+55 11 91307-6990",
-    "areaServed": "BR",
-    "sameAs": []
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"NEXUS INTEL",
+    "url":"https://nexusintel-sec.netlify.app/",
+    "logo":"https://nexusintel-sec.netlify.app/favicon-256.png",
+    "description":"Investigação digital: localização, infidelidade, golpes. Consultas por CPF, telefone e nome. Sigilo e relatórios profissionais.",
+    "telephone":"+5511913076990",
+    "areaServed":"BR"
   }
   </script>
 
+  <!-- Fonts + basic styles -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --accent: #1ea7ff;
-      --accent-2: #0ea0d6;
-      --bg-900: #04060a;
-      --bg-800: #071323;
-      --muted: rgba(255,255,255,0.66);
-      --card-bg: rgba(255,255,255,0.03);
-      --glass-border: rgba(30,167,255,0.16);
-      --white: #e9f2fb;
+      --bg-900:#030514;
+      --bg-800:#071323;
+      --card:#071323;
+      --glass: rgba(255,255,255,0.03);
+      --accent:#1ea7ff;
+      --accent-2:#0ea0d6;
+      --muted:rgba(234,243,251,0.78);
+      --white:#eaf3fb;
+      --neon-shadow: 0 10px 30px rgba(14,160,214,0.12);
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      background:linear-gradient(180deg,var(--bg-900),var(--bg-800));color:var(--white);
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;line-height:1.45;
-      padding-bottom:120px;overflow-y:scroll;
+      background: linear-gradient(180deg,var(--bg-900),var(--bg-800));
+      color:var(--white);-webkit-font-smoothing:antialiased;padding-bottom:120px;
+      -moz-osx-font-smoothing:grayscale;line-height:1.45;
     }
 
-    /* subtle background textures + lightweight parallax effect (JS will move) */
-    .circuit{position:fixed;inset:0;pointer-events:none;opacity:0.08;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="%231ea7ff" stop-opacity="0.35"/><stop offset="1" stop-color="%230ea0d6" stop-opacity="0.10"/></linearGradient></defs><g fill="none" stroke="url(%23g)" stroke-width="1.1"><path d="M60 150h200v60h120v-30h180"/><path d="M420 220v100h80v-40h160"/><path d="M120 380h140v40h200v-20h120"/><path d="M560 600h-120v-60h-180v40h-100"/><circle cx="220" cy="220" r="8"/><circle cx="480" cy="380" r="6"/><circle cx="700" cy="600" r="8"/></g></svg>');background-size:900px 900px;mix-blend-mode:screen;z-index:0;transform: translateY(0);}
-    .digital-noise{position:fixed;inset:0;pointer-events:none;opacity:0.10;mix-blend-mode:overlay;z-index:0;background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 2px);animation:noiseMove 22s linear infinite}
-    @keyframes noiseMove{0%{transform:translateY(0)}100%{transform:translateY(40px)}}
+    /* subtle textures */
+    .circuit{position:fixed;inset:0;pointer-events:none;opacity:0.06;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="%231ea7ff" stop-opacity="0.28"/><stop offset="1" stop-color="%230ea0d6" stop-opacity="0.08"/></linearGradient></defs><g fill="none" stroke="url(%23g)" stroke-width="1.1"><path d="M60 150h200v60h120v-30h180"/><path d="M420 220v100h80v-40h160"/><path d="M120 380h140v40h200v-20h120"/><path d="M560 600h-120v-60h-180v40h-100"/><circle cx="220" cy="220" r="8"/><circle cx="480" cy="380" r="6"/><circle cx="700" cy="600" r="8"/></g></svg>');background-size:900px 900px;mix-blend-mode:screen;z-index:0}
+    .noise{position:fixed;inset:0;pointer-events:none;opacity:0.08;mix-blend-mode:overlay;background-image:repeating-linear-gradient(0deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 3px);z-index:0}
 
-    .container{max-width:1150px;margin:0 auto;padding:22px 18px;position:relative;z-index:10}
+    .container{max-width:1150px;margin:0 auto;padding:26px;position:relative;z-index:10}
 
-    header{display:flex;align-items:center;justify-content:flex-start;margin-top:8px;margin-bottom:6px}
-    .brand{font-weight:900;letter-spacing:1px;font-size:34px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:900;color:#042a31;box-shadow:var(--neon-shadow)}
+    .brand h1{margin:0;font-size:18px;letter-spacing:1px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
 
-    .hero{margin-top:6px}
-    .title-wrap{
-      padding:22px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(8px);
-      box-shadow:0 10px 30px rgba(2,8,20,0.6);
-    }
-    .kicker{color:var(--accent);font-weight:700;font-size:13px}
-    .main-title{font-size:52px;margin:10px 0 12px;font-weight:900;line-height:1.02}
-    .lead{font-size:15px;color:var(--muted);margin:0 0 16px;max-width:92%}
+    /* HERO */
+    .hero{margin-top:12px;padding:26px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid var(--glass);box-shadow:0 12px 40px rgba(0,0,0,0.6);position:relative;overflow:hidden}
+    .selo{position:absolute;right:22px;top:22px;padding:10px 14px;border-radius:999px;background:linear-gradient(90deg,var(--accent-2),var(--accent));color:#021822;font-weight:900}
+    .hero h2{font-size:44px;margin:0;line-height:1.02}
+    .hero p{color:var(--muted);margin:10px 0 0;max-width:820px}
 
-    .title-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-    .btn{padding:9px 14px;border-radius:999px;font-weight:700;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--muted);cursor:pointer}
-    .cta-main{position:relative;overflow:hidden;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#01202a;border:none;padding:12px 20px;border-radius:12px;font-weight:900;box-shadow:0 8px 30px rgba(14,160,214,0.14);transition:transform .14s}
-    .cta-main:hover{transform:translateY(-3px)}
+    /* CTA and actions */
+    .cta-row{display:flex;gap:12px;align-items:center;margin-top:16px;flex-wrap:wrap}
+    .btn{padding:10px 14px;border-radius:999px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);cursor:pointer;text-decoration:none;font-weight:700}
+    .cta-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042a31;padding:12px 18px;border-radius:12px;font-weight:900;text-decoration:none;box-shadow:var(--neon-shadow)}
+    .cta-black{background:linear-gradient(90deg,#020203,#081218);color:var(--accent);padding:12px 18px;border-radius:999px;font-weight:900;border:2px solid rgba(255,255,255,0.03);text-decoration:none}
 
-    /* shimmer stripe inside CTA */
-    .cta-main .shimmer{ position:absolute; inset:0; pointer-events:none; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.06) 45%, rgba(255,255,255,0) 100%); transform:translateX(-140%); transition:transform .9s ease; }
-    .cta-main:hover .shimmer{ transform:translateX(140%); }
+    .shimmer{display:inline-block;background:linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.14), rgba(255,255,255,0.06));-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 3s linear infinite}
+    @keyframes sh{0%{background-position:-200px 0}100%{background-position:200px 0}}
 
-    /* pulse suave */
-    @keyframes pulse { 0%{transform:scale(1);}70%{transform:scale(1.03);}100%{transform:scale(1);} }
-    .cta-main.pulse{ animation: pulse 3s infinite; }
+    /* Proof / stats */
+    .stats{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}
+    .stat{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02);min-width:160px}
+    .stat h3{margin:0;font-size:20px}
+    .stat p{margin:6px 0 0;color:var(--muted)}
 
-    .quick{margin-top:18px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    /* How it works */
+    .steps{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
+    .step{flex:1;min-width:220px;padding:16px;border-radius:12px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+    .step h4{margin:0 0 6px}
+    .step p{margin:0;color:var(--muted);font-size:14px}
 
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
-    .card{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(30,167,255,0.08);box-shadow:0 6px 20px rgba(2,8,20,0.55);transition:transform .25s, box-shadow .25s;transform-origin:center}
-    .card:hover{ transform: translateY(-6px) rotateX(1deg); box-shadow:0 18px 40px rgba(2,8,20,0.6); }
-    .card h3{margin:8px 0 8px;font-size:18px}
-    .card p{color:var(--muted);font-size:14px;margin:0}
-    .num{display:inline-block;font-weight:800;color:var(--accent);background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:10px;font-size:18px;margin-bottom:8px}
+    /* testimonials */
+    .testimonials{margin-top:22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .testimonial{padding:14px;border-radius:12px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+    .testimonial p{margin:0 0 6px}
 
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-    .service-card{padding:10px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+    /* footer */
+    footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center;padding-bottom:40px}
 
-    .proofs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
-    .proof-box{padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+    /* Sticky CTA */
+    .sticky-cta{position:fixed;right:20px;bottom:20px;z-index:9999;display:flex;align-items:center;gap:10px;box-shadow:var(--neon-shadow);border-radius:999px;padding:6px}
+    .sticky-cta .black{background:linear-gradient(90deg,#020203,#081218);padding:12px 16px;border-radius:999px;color:var(--accent);font-weight:900;text-decoration:none;border:1px solid rgba(255,255,255,0.03)}
+    .sticky-cta .wa{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 12px;border-radius:10px;color:#021822;font-weight:900;text-decoration:none}
 
-    .form{margin-top:18px;padding:14px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);max-width:760px}
-    .form .row{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .form input,.form textarea,.form select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
-    .form textarea{min-height:100px}
-    .form .submit{display:inline-block;padding:12px 18px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042b33;font-weight:800;cursor:pointer}
+    /* Reveal animations */
+    .reveal{opacity:0;transform:translateY(10px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
+    .reveal.visible{opacity:1;transform:none}
 
-    /* selects readable */
-    select{color:var(--white); background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.2)); border:1px solid rgba(255,255,255,0.06)}
-    select option{background:#071323; color:var(--white)}
-    select:focus, select:hover{outline:none; box-shadow:0 6px 20px rgba(14,160,214,0.06)}
-
-    .floating-wa{position:fixed;right:18px;bottom:18px;z-index:60;border-radius:999px;padding:14px 18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042b33;font-weight:900;text-decoration:none;box-shadow:0 12px 40px rgba(14,160,214,0.15)}
-
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;z-index:120}
-    .modal .box{width:96%;max-width:1000px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(0,0,0,0.6);color:var(--white)}
-
-    /* reveal animations */
-    .reveal { opacity:0; transform: translateY(10px); transition: all .6s cubic-bezier(.2,.9,.3,1); will-change: opacity, transform }
-    .reveal.visible { opacity:1; transform: translateY(0); }
-
-    footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center;padding:30px 0}
-
-    /* responsive tweaks */
-    @media (max-width:1000px){
-      .grid-3{grid-template-columns:repeat(2,1fr)}
-      .services{grid-template-columns:repeat(2,1fr)}
-      .proofs{grid-template-columns:1fr}
-      .main-title{font-size:40px}
-      .brand{font-size:28px}
-    }
-    @media (max-width:560px){
-      .grid-3{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr}
-      .main-title{font-size:30px}
-      .brand{font-size:22px}
-      header{padding-bottom:4px}
-      .title-wrap{padding:16px}
-      .cta-main{width:100%;display:inline-block}
-    }
+    /* responsive */
+    @media (max-width:1000px){ .hero h2{font-size:34px} .testimonials{grid-template-columns:repeat(2,1fr)} .stats{flex-direction:column} }
+    @media (max-width:640px){ .hero h2{font-size:26px} .testimonials{grid-template-columns:1fr} .steps{flex-direction:column} .logo{width:46px;height:46px} .brand h1{font-size:16px} }
   </style>
 </head>
 <body>
   <div class="circuit" aria-hidden="true"></div>
-  <div class="digital-noise" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
 
   <div class="container">
     <header>
-      <div class="brand">NEXUS INTEL</div>
-    </header>
-
-    <main class="hero">
-      <div class="title-wrap reveal" role="region" aria-labelledby="hero-title">
-        <div class="kicker">SIGILO • PRIORIDADE • RESPOSTA RÁPIDA</div>
-        <h1 class="main-title">Investigação Digital Profissional</h1>
-        <p class="lead">Atendemos casos urgentes com análise imediata. Rastreio digital, infidelidade, fraudes, golpes e localização com máxima precisão.</p>
-
-        <div class="title-actions">
-          <a href="/relatorio.html" target="_blank" class="btn">Quem somos e o que fazemos</a>
-          <button id="btnCTA" class="cta-main"><span class="shimmer"></span>Investigar Agora — Prioridade Imediata</button>
+      <div class="brand" aria-label="Nexus Intel">
+        <div class="logo" aria-hidden="true">NI</div>
+        <div>
+          <h1>NEXUS INTEL</h1>
+          <p>Investigação Digital • Sigilo • Provas</p>
         </div>
       </div>
 
-      <aside class="quick reveal" aria-labelledby="quick-h" style="margin-top:12px">
-        <h3 id="quick-h">Contato Rápido</h3>
-        <p>Responda rápido via WhatsApp — confidencial e seguro. Atendimento inicial em 24–48h.</p>
-      </aside>
+      <div style="text-align:right">
+        <div style="color:var(--muted);font-size:13px">Atendimento prioritário • Resposta inicial em 24–48h</div>
+      </div>
+    </header>
 
-      <section aria-labelledby="authority" style="width:100%;margin-top:18px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
-          <h2 id="authority" style="margin:0;font-size:20px">Por que escolher a NEXUS INTEL</h2>
-          <div style="color:var(--muted);font-size:13px">Sigilo • Legalidade • Resultados</div>
+    <main>
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="main-title">
+        <div class="selo" aria-hidden="true">100% SIGILO</div>
+        <h2 id="main-title" class="reveal">Investigação Digital Profissional <span class="shimmer">— Prioridade Imediata</span></h2>
+        <p class="reveal">Localização, infidelidade, golpes e consultas por <strong>CPF</strong>, <strong>telefone</strong> e <strong>nome completo</strong>. Atendimento sigiloso e entrega de relatório técnico.</p>
+
+        <div class="cta-row reveal" style="margin-top:18px">
+          <!-- Black aggressive offer -->
+          <a class="cta-black" href="https://wa.me/5511913076990?text=Quero%20Oferta%20Black%20-%20Prioridade%20Imediata" title="Oferta Black — Prioridade Imediata">OFERTA BLACK — PRIORIDADE IMEDIATA</a>
+
+          <!-- Secondary action to email -->
+          <a class="btn" href="mailto:contato@nexusintel.com">Solicitar proposta por e-mail</a>
         </div>
 
-        <div class="grid-3" style="margin-top:12px">
-          <div class="card reveal">
-            <div class="num">1</div>
-            <h3>100% Confidencial</h3>
-            <p>Comunicação e arquivos criptografados, acesso restrito ao investigador responsável.</p>
+        <!-- small trust stats -->
+        <div class="stats" role="list">
+          <div class="stat reveal">
+            <h3>+350</h3>
+            <p>Casos analisados (anonimamente)</p>
           </div>
-
-          <div class="card reveal">
-            <div class="num">2</div>
-            <h3>Análise Técnica</h3>
-            <p>OSINT, varredura digital, rastreamento e validação humana.</p>
+          <div class="stat reveal">
+            <h3>94%</h3>
+            <p>Taxa de comprovação em investigações digitais</p>
           </div>
-
-          <div class="card reveal">
-            <div class="num">3</div>
-            <h3>Provas Reais</h3>
-            <p>Relatórios com prints, registros, conexões e timeline estruturada para uso pessoal ou jurídico.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="services" class="reveal" style="width:100%;margin-top:18px">
-        <h2 style="margin-top:12px">Serviços Principais</h2>
-        <div class="services">
-          <div class="service-card reveal"><h4>Infidelidade</h4><p>Confirmação digital, padrões e provas.</p></div>
-          <div class="service-card reveal"><h4>Golpes Online</h4><p>Identificação de golpistas e rastreamento.</p></div>
-          <div class="service-card reveal"><h4>Localização</h4><p>Rastreamento digital + OSINT profundo.</p></div>
-        </div>
-      </section>
-
-      <section id="proofs" class="reveal" style="width:100%;margin-top:18px">
-        <h2>Como entregamos as provas</h2>
-        <div class="proofs">
-          <div class="proof-box reveal">
-            <h4>Relatório Digital (PDF)</h4>
-            <p style="color:var(--muted)">PDF profissional com prints, registros, metadados e linha do tempo.</p>
-            <div class="timeline" aria-hidden="true" style="margin-top:8px">
-              <div class="item"><strong>Coleta</strong> — Identificação e captura de evidências dentro da legalidade.</div>
-              <div class="item"><strong>Validação</strong> — Verificação de autenticidade e contexto.</div>
-              <div class="item"><strong>Entrega</strong> — Arquivo estruturado e anexos prontos para apresentação.</div>
-            </div>
-          </div>
-
-          <div class="proof-box reveal">
-            <h4>Mapa de Conexões</h4>
-            <p style="color:var(--muted)">Visualização das relações entre perfis, números, interações e horários.</p>
+          <div class="stat reveal">
+            <h3>24/7</h3>
+            <p>Atendimento prioritário (sob demanda)</p>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="reveal" style="width:100%;margin-top:18px">
-        <h2 style="margin-bottom:8px">Análise Inicial Prioritária</h2>
-        <form class="form" id="leadForm" novalidate>
-          <div class="row">
-            <input id="nome" placeholder="Nome completo" required>
-            <input id="telefone" placeholder="Celular (com DDD)" required>
+      <!-- How it works -->
+      <section style="margin-top:22px" aria-labelledby="how">
+        <h3 id="how">Como funciona — 3 passos</h3>
+        <div class="steps">
+          <div class="step reveal" aria-labelledby="step1">
+            <h4 id="step1">1) Contato sigiloso</h4>
+            <p>Você nos envia uma descrição curta por WhatsApp. Atendimento inicial em até 24–48h (urgência imediata por Oferta Black).</p>
           </div>
-          <div class="row" style="margin-top:8px">
-            <input id="email" placeholder="Email" required>
-            <input id="cidade" placeholder="Cidade / Estado" required>
+          <div class="step reveal" aria-labelledby="step2">
+            <h4 id="step2">2) Análise técnica</h4>
+            <p>Executamos OSINT e consultas técnicas (CPF, telefone, nome) com procedimentos éticos e legais.</p>
           </div>
-          <div class="row" style="margin-top:8px">
-            <select id="tipo" required>
-              <option value="" disabled selected>Tipo de investigação...</option>
-              <option>Infidelidade</option>
-              <option>Golpe Online</option>
-              <option>Localização</option>
-              <option>Verificação de Parceiros</option>
-              <option>Busca de Pessoas</option>
-              <option>Outro</option>
-            </select>
-            <select id="urgencia" required>
-              <option value="" disabled selected>Urgência...</option>
-              <option>Alta (24-72h)</option>
-              <option>Média (7 dias)</option>
-              <option>Baixa</option>
-            </select>
+          <div class="step reveal" aria-labelledby="step3">
+            <h4 id="step3">3) Entrega de provas</h4>
+            <p>Você recebe relatório técnico, prints e mapa de conexões — pronto para uso pessoal ou jurídico.</p>
           </div>
-          <div style="margin-top:8px">
-            <textarea id="resumo" placeholder="Resumo do caso (detalhes importantes)" required></textarea>
-          </div>
-
-          <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
-            <button type="submit" class="form-submit submit">Investigar Agora — Prioridade Imediata</button>
-          </div>
-        </form>
+        </div>
       </section>
 
-      <footer style="width:100%;margin-top:18px">
+      <!-- Packages summary (a partir de) -->
+      <section style="margin-top:22px" aria-labelledby="plans">
+        <h3 id="plans">Serviços (valores a partir de)</h3>
+        <div class="testimonials">
+          <div class="testimonial reveal">
+            <h4>Localização Digital — a partir de R$ 450</h4>
+            <p>Rastreamento OSINT, consultas por CPF/telefone/nome e mapa de conexões.</p>
+          </div>
+          <div class="testimonial reveal">
+            <h4>Investigação de Infidelidade — a partir de R$ 650</h4>
+            <p>Mapeamento digital completo, identificação de perfis alternativos e relatório consolidado.</p>
+          </div>
+          <div class="testimonial reveal">
+            <h4>Investigações de Fraudes — a partir de R$ 1.500</h4>
+            <p>Rastreamento forense, cruzamento de dados, laudo técnico e suporte jurídico.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- social proof testimonials -->
+      <section style="margin-top:22px" aria-labelledby="social">
+        <h3 id="social">Provas & Feedback</h3>
+        <div class="testimonials" aria-live="polite">
+          <div class="testimonial reveal">
+            <p>"A equipe agiu com total sigilo e entregou provas claras — recomendo." <strong>— Cliente (confidencial)</strong></p>
+          </div>
+          <div class="testimonial reveal">
+            <p>"Recuperamos informações cruciais e o caso foi encaminhado ao advogado." <strong>— Escritório parceiro</strong></p>
+          </div>
+          <div class="testimonial reveal">
+            <p>"Atendimento rápido e profissional. Relatório muito bem formatado." <strong>— Cliente (confidencial)</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- small FAQ / trust notes -->
+      <section style="margin-top:22px" aria-labelledby="faq">
+        <h3 id="faq">Observações importantes</h3>
+        <p style="color:var(--muted)">Consultas por CPF, telefone e nome são realizadas com foco em fontes públicas e cruzamento OSINT. Todos os serviços são executados com ética e em conformidade com a legislação. Solicitações que envolvam acessos ilegais não são executadas.</p>
+      </section>
+
+      <footer style="margin-top:28px">
         <div>NEXUS INTEL — Investigação Digital • Sigilo • Provas</div>
-        <div style="margin-top:6px;color:var(--muted)">© <span id="year"></span> Nexus Intel. Todos os direitos reservados.</div>
+        <div style="margin-top:8px;color:var(--muted)">E-mail: contato@nexusintel.com • WhatsApp: +55 11 91307-6990</div>
       </footer>
     </main>
   </div>
 
-  <a id="floatingWA" class="floating-wa" href="https://wa.me/5511913076990?text=Investigar%20Agora%20--%20Prioridade%20Imediata" target="_blank" rel="noopener">💬 Prioridade Imediata</a>
-
-  <!-- Quem somos modal (PDF embed + download) -->
-  <div class="modal" id="quemModal" role="dialog" aria-modal="true" aria-labelledby="quemTitle" style="display:none">
-    <div class="box" role="document">
-      <button id="closeQuem" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
-      <h3 id="quemTitle">Quem somos e o que fazemos — Nexus Intel</h3>
-      <p style="color:var(--muted)">Resumo institucional — versão completa abaixo. Clique em "Abrir em nova aba" ou "Download do relatório".</p>
-
-      <div style="margin-top:12px;">
-        <div style="width:100%;height:60vh;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,0.04)">
-          <iframe id="relatorioFrame" src="/relatorio-nexus.pdf" style="width:100%;height:100%;border:0;background:#071323" title="Relatório Nexus"></iframe>
-        </div>
-      </div>
-
-      <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:12px">
-        <a id="openPdfNew" class="btn" href="/relatorio-nexus.pdf" target="_blank" rel="noopener">Abrir em nova aba</a>
-        <a id="downloadPdf" class="cta-main" href="/relatorio-nexus.pdf" download><span class="shimmer"></span>Download do relatório</a>
-      </div>
-    </div>
+  <!-- sticky CTA (black offer + whatsapp) -->
+  <div class="sticky-cta" role="complementary" aria-label="Oferta Black">
+    <a class="black" href="https://wa.me/5511913076990?text=Quero%20Oferta%20Black%20-%20Prioridade%20Imediata">OFERTA BLACK</a>
+    <a class="wa" href="https://wa.me/5511913076990?text=Quero%20avaliacao%20sigilosa%20imediata">FALAR AGORA</a>
   </div>
 
+  <!-- lightweight JS: reveal, shimmer initial pulse, parallax -->
   <script>
-    // Global small utilities
     document.addEventListener('DOMContentLoaded', function(){
-      // set year
-      var yearEl = document.getElementById('year'); if(yearEl) yearEl.textContent = new Date().getFullYear();
-
-      // reveal on scroll
+      // Reveal on scroll
       (function(){
         var obs = new IntersectionObserver(function(entries){
           entries.forEach(function(e){
@@ -320,91 +264,28 @@
         document.querySelectorAll('.reveal').forEach(function(el){ obs.observe(el); });
       })();
 
-      // small CTA pulse on load
-      (function(){ var c = document.querySelector('.cta-main'); if(c){ c.classList.add('pulse'); setTimeout(()=>c.classList.remove('pulse'), 6500); } })();
+      // CTA pulse on load
+      (function(){
+        var el = document.querySelector('.cta-black');
+        if(!el) return;
+        el.animate([{transform:'scale(1)'},{transform:'scale(1.03)'},{transform:'scale(1)'}],{duration:2000,iterations:2});
+      })();
 
-      // Parallax - subtle background translate on scroll (very light)
+      // subtle parallax for background circuit
       (function(){
         var circuit = document.querySelector('.circuit');
         if(!circuit) return;
         window.addEventListener('scroll', function(){
-          var y = window.scrollY * 0.06; // very small
+          var y = window.scrollY * 0.04;
           circuit.style.transform = 'translateY(' + y + 'px)';
         }, {passive:true});
       })();
-
-      // Elements
-      var btnQuem = document.getElementById('btnQuem');
-      var quemModal = document.getElementById('quemModal');
-      var closeQuem = document.getElementById('closeQuem');
-      var relatorioFrame = document.getElementById('relatorioFrame');
-      var printQuem = document.getElementById('printQuem'); // optional
-      var btnCTA = document.getElementById('btnCTA');
-      var floatingWA = document.getElementById('floatingWA');
-      var leadForm = document.getElementById('leadForm');
-      var downloadPdf = document.getElementById('downloadPdf');
-
-      // open whatsapp prefilled
-      function openWhatsAppPrefilled(){
-        var msg = encodeURIComponent('Olá — quero iniciar uma investigação prioritária. Por favor, orientem próximos passos.');
-        var url = 'https://wa.me/5511913076990?text=' + msg;
-        var w = window.open(url, '_blank');
-        if(!w){ alert('Popup bloqueado. Permita popups/abra o link manualmente.'); }
-      }
-      if(btnCTA) btnCTA.addEventListener('click', openWhatsAppPrefilled);
-      if(floatingWA) floatingWA.addEventListener('click', function(e){ e.preventDefault(); openWhatsAppPrefilled(); });
-
-      // Modal open/close - loads PDF with cache-bust
-      if(btnQuem){
-        btnQuem.addEventListener('click', function(){
-          if(!quemModal) return;
-          // set src with cache-bust to always fetch latest
-          if(relatorioFrame) relatorioFrame.src = '/relatorio-nexus.pdf?v=' + Date.now();
-          quemModal.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
-        });
-      }
-      if(closeQuem){
-        closeQuem.addEventListener('click', function(){
-          if(!quemModal) return;
-          quemModal.style.display = 'none';
-          document.body.style.overflow = 'auto';
-          // optional: unload iframe to save memory
-          if(relatorioFrame) relatorioFrame.src = 'about:blank';
-        });
-      }
-
-      // lead form submit -> open whatsapp with details (no server)
-      if(leadForm){
-        leadForm.addEventListener('submit', function(e){
-          e.preventDefault();
-          var nome = document.getElementById('nome').value.trim();
-          var telefone = document.getElementById('telefone').value.trim();
-          var email = document.getElementById('email').value.trim();
-          var cidade = document.getElementById('cidade').value.trim();
-          var tipo = document.getElementById('tipo').value;
-          var urgencia = document.getElementById('urgencia').value;
-          var resumo = document.getElementById('resumo').value.trim();
-          if(!nome || !telefone || !email || !cidade || !tipo || !urgencia || !resumo){
-            alert('Por favor, preencha todos os campos obrigatórios.');
-            return;
-          }
-          var preview = 'NEXUS INTEL - Lead Prioritário%0A%0ANome: ' + encodeURIComponent(nome) + '%0ACelular: ' + encodeURIComponent(telefone) + '%0AEmail: ' + encodeURIComponent(email) + '%0ACidade: ' + encodeURIComponent(cidade) + '%0ATipo: ' + encodeURIComponent(tipo) + '%0AUrgência: ' + encodeURIComponent(urgencia) + '%0AResumo: ' + encodeURIComponent(resumo.substring(0,800));
-          var w = window.open('https://wa.me/5511913076990?text=' + preview, '_blank');
-          if(!w){ alert('Popup bloqueado. Permita popups/abra o link manualmente.'); return; }
-          setTimeout(function(){ leadForm.reset(); }, 600);
-        });
-      }
-
-      // download click analytics placeholder (console) - replace with GA event if you add GA
-      if(downloadPdf){
-        downloadPdf.addEventListener('click', function(){ console.log('Relatório: download clicado'); });
-      }
-
-    }); // DOMContentLoaded
+    });
   </script>
 </body>
 </html>
+
+
 
 
 
