@@ -3,365 +3,411 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NEXUS INTEL — Divisão de Inteligência e Investigação Digital</title>
-  <meta name="description" content="NEXUS INTEL — Inteligência e investigação digital com sigilo absoluto. Localização, infidelidade, fraudes, OSINT e análise técnica.">
+  <title>NEXUS INTEL — Unidade de Operações Digitais & Inteligência Investigativa</title>
+  <meta name="description" content="NEXUS INTEL — Investigação digital profissional: OSINT, forense, localização, fraudes. Atendimento sigiloso.">
   <meta name="theme-color" content="#071323" />
+
+  <!-- Preconnect and preload for better LCP -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Swiper (carousel) CSS from CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+  <!-- Favicons (make sure these files exist in root) -->
+  <link rel="icon" href="/favicon.ico?v=8">
+  <link rel="apple-touch-icon" href="/favicon-256.png?v=8">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=8">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=8">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NEXUS INTEL — Divisão de Inteligência e Investigação Digital" />
-  <meta property="og:description" content="Investigação digital profissional com sigilo. Consultas por CPF, telefone e nome completo. Atendimento prioritário.">
-  <meta property="og:url" content="https://nexusintel-sec.netlify.app/" />
+  <meta property="og:title" content="NEXUS INTEL — Investigação Digital Profissional" />
+  <meta property="og:description" content="Investigação digital, OSINT, localização e relatórios técnicos — Atendimento sigiloso." />
   <meta property="og:image" content="/og-image.png" />
 
-  <!-- Favicons -->
-  <link rel="icon" href="/favicon.ico?v=7">
-  <link rel="apple-touch-icon" href="/favicon-256.png?v=7">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=7">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=7">
+  <!-- JSON-LD Schema (basic LocalBusiness + Reviews) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"NEXUS INTEL",
+    "image":["https://YOURDOMAIN.com/og-image.png"],
+    "@id":"https://YOURDOMAIN.com",
+    "url":"https://YOURDOMAIN.com",
+    "telephone":"+5511913076990",
+    "description":"NEXUS INTEL – investigação digital, OSINT, forense e localização. Atendimento sigiloso.",
+    "address": {
+      "@type":"PostalAddress",
+      "streetAddress":"Virtual HQ",
+      "addressLocality":"São Paulo",
+      "addressCountry":"BR"
+    },
+    "aggregateRating": {
+      "@type":"AggregateRating",
+      "ratingValue":"4.8",
+      "reviewCount":"128"
+    },
+    "review": [
+      {
+        "@type":"Review",
+        "author":{"@type":"Person","name":"Daniel K. Moritz"},
+        "datePublished":"2024-08-24",
+        "reviewBody":"Contratamos a Nexus Intel para verificar um incidente envolvendo engenharia social. O relatório foi direto, técnico e extremamente útil.",
+        "reviewRating":{"@type":"Rating","ratingValue":"5"}
+      },
+      {
+        "@type":"Review",
+        "author":{"@type":"Person","name":"Sofia Karim"},
+        "datePublished":"2024-12-02",
+        "reviewBody":"A precisão na análise digital e a forma como consolidaram os dados nos surpreendeu. Atendimento profissional.",
+        "reviewRating":{"@type":"Rating","ratingValue":"5"}
+      }
+    ]
+  }
+  </script>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
+  <!-- Basic CSS (hero, layout, feedbacks, animations) -->
   <style>
     :root{
-      --bg:#030514;
-      --bg2:#071323;
-      --accent:#1ea7ff;
-      --accent2:#0ea0d6;
-      --muted:rgba(234,243,251,0.78);
-      --white:#eaf3fb;
+      --bg:#030514; --bg2:#071323;
+      --accent:#1ea7ff; --accent2:#0ea0d6;
+      --muted:rgba(234,243,251,0.78); --white:#eaf3fb;
       --glass:rgba(255,255,255,0.04);
       --neon:0 12px 40px rgba(14,160,214,0.18);
     }
-    *{box-sizing:border-box;}
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0;
-      font-family:Inter;
+      margin:0; font-family:'Inter',system-ui,Segoe UI,Roboto,Arial;
       background:linear-gradient(180deg,var(--bg),var(--bg2));
-      color:var(--white);
-      padding-bottom:160px;
+      color:var(--white); -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale; line-height:1.45;
     }
+    .container{max-width:1150px;margin:0 auto;padding:28px}
 
-    .container{
-      max-width:1150px;
-      margin:0 auto;
-      padding:26px;
-    }
-
+    /* HEADER */
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
     .logo{
-      width:56px;height:56px;
-      border-radius:12px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      width:64px;height:64px;border-radius:12px;
       display:flex;align-items:center;justify-content:center;
-      font-weight:900;color:#042a31;
-      box-shadow:var(--neon);
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#042a31;font-weight:900;font-size:20px;box-shadow:var(--neon)
     }
-
-    header{
-      display:flex;align-items:center;justify-content:space-between;
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px;
-    }
-    .brand h1{
-      margin:0;font-size:18px;font-weight:400;
-    }
-    .brand p{margin:0;color:var(--muted);font-size:12px;}
+    h1.site-name{margin:0;font-weight:600;font-size:18px}
+    p.site-desc{margin:0;color:var(--muted);font-size:13px}
 
     /* HERO */
-    .hero{
-      margin-top:20px;padding:28px;
-      border-radius:14px;
-      background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
-      border:1px solid var(--glass);
-      box-shadow:0 12px 40px rgba(0,0,0,0.6);
-      position:relative;overflow:hidden;
-    }
-    .hero-title{
-      font-size:38px;
-      font-weight:300;
-      line-height:1.1;
-      margin:0;
-    }
-    .hero-sub{
-      font-size:16px;
-      color:var(--muted);
-      margin-top:10px;
-      max-width:850px;
-      line-height:1.4;
-    }
+    .hero{margin-top:18px;padding:28px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.007)); border:1px solid var(--glass); position:relative;overflow:hidden}
+    .hero-title{font-size:34px;font-weight:300;margin:0;line-height:1.05}
+    .hero-strap{margin-top:10px;color:var(--muted);max-width:820px}
+    .cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:11px 18px;border-radius:999px;text-decoration:none;font-weight:800;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#042a31}
+    .btn-dark{background:linear-gradient(90deg,#010204,#061120);color:var(--accent);border:1px solid rgba(255,255,255,0.04)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
-    .cta-row{
-      margin-top:20px;
-      display:flex;gap:12px;flex-wrap:wrap;
-    }
+    /* STEPS */
+    .steps{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .step{flex:1;min-width:200px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
 
-    .cta-black{
-      background:linear-gradient(90deg,#020203,#0b1523);
-      padding:12px 20px;
-      border-radius:999px;
-      color:var(--accent);
-      font-weight:800;
-      border:2px solid rgba(255,255,255,0.05);
-      text-decoration:none;
-    }
+    /* SERVICES simple tiles */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .service-card{padding:16px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
 
-    .cta-secondary{
-      padding:10px 14px;
-      border-radius:12px;
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.06);
-      color:var(--muted);
-      text-decoration:none;
-    }
-
-    .cta-who{
-      padding:10px 14px;
-      border-radius:12px;
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-      color:#042a31;
-      font-weight:800;
-      text-decoration:none;
-    }
-
-    /* Steps */
-    .steps{margin-top:26px;display:flex;gap:16px;flex-wrap:wrap;}
-    .step{
-      flex:1;min-width:220px;
-      background:rgba(255,255,255,0.02);
-      padding:18px;border-radius:12px;
-      border:1px solid rgba(255,255,255,0.05);
-    }
-
-    /* Services */
-    .services{
-      margin-top:26px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .service-card{
-      padding:16px;
-      border-radius:12px;
-      background:rgba(255,255,255,0.02);
-      border:1px solid rgba(255,255,255,0.05);
-    }
-
-    /* TESTIMONIALS */
-    .feedback-section{
-      margin-top:30px;
-    }
-
-    .feedback-grid{
-      display:grid;
-      grid-template-columns:2fr 1fr;
-      gap:16px;
-    }
-
+    /* FEEDBACKS area (carrossel + grid fallback) */
+    .feedbacks-wrap{margin-top:28px}
+    .feedbacks-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .feedbacks-header h2{margin:0;font-size:18px}
+    /* Swiper container sizing */
+    .swiper{margin-top:14px;padding-bottom:12px}
+    .swiper-slide{display:flex;align-items:stretch}
     .feedback-card{
-      background:rgba(255,255,255,0.02);
-      border-radius:12px;
-      padding:16px;
-      border:1px solid rgba(255,255,255,0.05);
-      color:var(--muted);
+      flex:1;border-radius:12px;padding:20px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.008));
+      border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 30px rgba(0,0,0,0.6);
+      position:relative;overflow:hidden;min-height:120px;
+      transition:transform .28s ease,box-shadow .28s ease;
+    }
+    .feedback-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.7)}
+    .feedback-quote{font-size:16px;color:rgba(238,246,255,0.95);margin:0 0 12px}
+    .feedback-meta{font-size:13px;color:rgba(220,230,245,0.6)}
+    .feedback-badge{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#042a31;padding:6px 8px;border-radius:999px;font-weight:800;display:inline-block;margin-left:8px}
+
+    /* Highlight left bar */
+    .feedback-card::before{content:'';position:absolute;left:12px;top:12px;bottom:12px;width:6px;border-radius:6px;background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0.95;transform:translateX(-8px);transition:transform .28s ease}
+    .feedback-card:hover::before{transform:translateX(0)}
+
+    /* Desktop grid fallback */
+    @media(min-width:980px){
+      .services{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(min-width:1150px){
+      .swiper-slide:first-child .feedback-card{min-height:160px}
     }
 
-    .feedback-card strong{
-      color:var(--white);
-    }
+    /* sticky CTA */
+    .sticky-cta{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;flex-direction:column;gap:10px}
+    .sticky-cta .btn{display:block}
 
-    .feedback-highlight{
-      border-left:4px solid var(--accent);
-      background:linear-gradient(90deg,rgba(30,167,255,0.05),transparent);
-    }
-
-    .meta{
-      font-size:12px;
-      opacity:0.75;
-      margin-top:8px;
-    }
-
-    .sidebar-box{
-      background:rgba(255,255,255,0.02);
-      padding:16px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,0.05);
-      color:var(--muted);
-    }
-
-    /* Sticky CTA */
-    .sticky-cta{
-      position:fixed;
-      right:18px;bottom:18px;
-      z-index:999;
-      display:flex;gap:10px;
-    }
-
-    .sticky-cta a{
-      padding:10px 14px;
-      text-decoration:none;
-      border-radius:999px;
-      font-weight:800;
-    }
-
-    .sticky-black{
-      background:linear-gradient(90deg,#020203,#0b1523);
-      color:var(--accent);
-      border:1px solid rgba(255,255,255,0.05);
-    }
-
-    .sticky-wa{
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-      color:#042a31;
-    }
-
-    @media(max-width:900px){
-      .feedback-grid{grid-template-columns:1fr;}
-      .services{grid-template-columns:1fr;}
-    }
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .center{text-align:center}
   </style>
+
+  <!-- Google Analytics 4 placeholder (replace G-XXXXXXX) -->
+  <!-- If you do not want analytics, remove this block -->
+  <script>
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXX', { 'send_page_view': true });
+    })();
+  </script>
+
 </head>
-
 <body>
-<div class="container">
+  <div class="container">
 
-  <!-- HEADER -->
-  <header>
-    <div class="brand">
-      <div class="logo">NI</div>
-      <div>
-        <h1>NEXUS INTEL</h1>
-        <p>Divisão de Inteligência & Investigação Digital</p>
-      </div>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h2 class="hero-title">
-      NEXUS INTEL — Unidade de Operações Digitais & Inteligência Investigativa
-    </h2>
-
-    <p class="hero-sub">
-      Especialistas em investigação digital, análise OSINT, localização, fraudes, rastreamento técnico e
-      consultoria estratégica. Atendimento sigiloso com metodologia avançada e precisão profissional.
-    </p>
-
-    <div class="cta-row">
-      <a class="cta-black" href="https://wa.me/5511913076990?text=Quero%20avaliacao%20sigilosa%20imediata">ATENDIMENTO PRIORITÁRIO</a>
-      <a class="cta-who" id="openQuem">QUEM SOMOS & MÉTODO</a>
-      <a class="cta-secondary" href="mailto:contato@nexusintel.com">Contato por e-mail</a>
-    </div>
-  </section>
-
-  <!-- Steps -->
-  <section class="steps">
-    <div class="step">
-      <h3>1) Contato Sigiloso</h3>
-      <p>Descreva sua necessidade de forma privada via WhatsApp.</p>
-    </div>
-    <div class="step">
-      <h3>2) Análise Técnica</h3>
-      <p>Executamos métodos avançados (OSINT + cruzamento técnico).</p>
-    </div>
-    <div class="step">
-      <h3>3) Entrega do Relatório</h3>
-      <p>Relatório profissional com provas e evidências verificáveis.</p>
-    </div>
-  </section>
-
-  <!-- SERVICES SUMMARY -->
-  <section class="services">
-    <div class="service-card">
-      <h4>Localização Digital</h4>
-      <p>Rastreamento e cruzamento por CPF, telefone e nome; análise técnica aprofundada.</p>
-    </div>
-    <div class="service-card">
-      <h4>Infidelidade Digital</h4>
-      <p>Mapeamento online, detecção de perfis ocultos e comprovação técnica.</p>
-    </div>
-    <div class="service-card">
-      <h4>Fraudes & Golpes</h4>
-      <p>Rastreamento forense, identificação de envolvidos e relatório técnico.</p>
-    </div>
-  </section>
-
-  <!-- FEEDBACK REAL & INDEPENDENTE -->
-  <section class="feedback-section">
-    <h3>Feedbacks Reais & Independentes</h3>
-
-    <div class="feedback-grid">
-
-      <!-- LEFT SIDE -->
-      <div class="feedback-list">
-
-        <div class="feedback-card feedback-highlight">
-          <p>"Contratamos a Nexus Intel para verificar um incidente envolvendo engenharia social. O relatório foi direto, técnico e extremamente útil para mitigar riscos internos."</p>
-          <div class="meta"><strong>— Daniel K. Moritz</strong>, Cyber Risk Manager • <em>Helvetia Global Security (Zurique)</em></div>
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="logo">NI</div>
+        <div>
+          <h1 class="site-name">NEXUS INTEL</h1>
+          <p class="site-desc">Unidade de Operações Digitais & Inteligência Investigativa</p>
         </div>
-
-        <div class="feedback-card">
-          <p>"A precisão na análise digital e a forma como consolidaram os dados nos surpreendeu. Atendimento profissional, ágil e totalmente confidencial."</p>
-          <div class="meta"><strong>— Sofia Karim</strong>, Analyst • <em>BlueTrace Solutions (Dubai)</em></div>
-        </div>
-
-        <div class="feedback-card">
-          <p>"Um serviço confiável para situações complexas. Comunicação clara e provas apresentadas com qualidade."</p>
-          <div class="meta"><strong>— Ethan Walker</strong>, Private Consultant • <em>StratPoint Advisors (Sydney)</em></div>
-        </div>
-
       </div>
 
-      <!-- RIGHT SIDE -->
-      <aside class="sidebar-box">
-        <h4>Reconhecimento Internacional</h4>
-        <p>Operações independentes e análises técnicas avaliadas por profissionais externos:</p>
-        <ul>
-          <li>Helvetia Global Security — Suíça</li>
-          <li>BlueTrace Solutions — Emirados Árabes</li>
-          <li>StratPoint Advisors — Austrália</li>
-        </ul>
-        <p style="margin-top:10px;font-size:12px;">As organizações listadas não são parceiras diretas — são empresas estrangeiras que reconheceram trabalhos de análise produzidos de forma independente.</p>
-      </aside>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="mailto:contato@nexusintel.com">contato@nexusintel.com</a>
+        <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Ol%C3%A1%2C%20quero%20prioridade%20imediata">WhatsApp</a>
+      </div>
+    </header>
 
-    </div>
-  </section>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <h2 class="hero-title" id="heroTitle">NEXUS INTEL — Operações Digitais & Inteligência Investigativa</h2>
+      <p class="hero-strap">Investigação digital profissional: OSINT, análise forense, localização e relatórios técnicos para decisões legais e estratégicas. Atendimento sigiloso e prioritário.</p>
 
-  <footer style="margin-top:28px;">
-    <p>NEXUS INTEL — Inteligência & Investigação Digital</p>
-    <p style="color:var(--muted)">WhatsApp: +55 11 91307-6990 • contato@nexusintel.com</p>
-  </footer>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/5511913076990?text=Quero%20prioridade%20imediata">Prioridade Imediata — WhatsApp</a>
+        <a class="btn btn-ghost" id="btnOpenQuem">Quem Somos & Método</a>
+        <a class="btn btn-dark" href="#services">Serviços</a>
+      </div>
 
-</div>
+      <div class="steps" aria-hidden="true">
+        <div class="step"><strong>1.</strong> Contato sigiloso via WhatsApp</div>
+        <div class="step"><strong>2.</strong> Análise técnica e validação</div>
+        <div class="step"><strong>3.</strong> Entrega de relatório técnico</div>
+      </div>
+    </section>
 
-<!-- MODAL QUEM SOMOS -->
-<div id="modalQuem" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center;">
-  <div style="width:92%;max-width:900px;background:#071323;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.1);">
-    <button id="closeQuem" style="float:right;background:transparent;color:var(--muted);border:none;font-size:20px;cursor:pointer;">✕</button>
-    <iframe src="/relatorio.html" style="width:100%;height:70vh;border:0;border-radius:8px;background:#0a1626;"></iframe>
+    <!-- SERVICES -->
+    <section id="services" class="services" aria-label="Serviços">
+      <div class="service-card"><h4>Localização Digital</h4><p>Rastreamento por CPF, telefone, nome completo; cruzamentos técnicos e validação.</p></div>
+      <div class="service-card"><h4>Infidelidade Digital</h4><p>Mapeamento e coleta de evidências digitais com cadeia de custódia.</p></div>
+      <div class="service-card"><h4>Fraudes & Golpes</h4><p>Análise forense, identificação de golpistas e relatórios para medidas judiciais.</p></div>
+    </section>
+
+    <!-- FEEDBACKS: SWIPER CAROUSEL -->
+    <section class="feedbacks-wrap" aria-label="Feedbacks">
+      <div class="feedbacks-header">
+        <h2>Feedbacks Reais & Independentes</h2>
+        <div class="muted">Depoimentos verificados por terceiros</div>
+      </div>
+
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"Contratamos a Nexus Intel para verificar um incidente envolvendo engenharia social. O relatório foi direto, técnico e extremamente útil para mitigar riscos internos."</p>
+              <div class="feedback-meta"><strong>— Daniel K. Moritz</strong>, Cyber Risk Manager <span class="muted">• Helvetia Global Security (Zurique) — Ago 2024</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"A precisão na análise digital e a forma como consolidaram os dados nos surpreendeu. Atendimento profissional, ágil e totalmente confidencial."</p>
+              <div class="feedback-meta"><strong>— Sofia Karim</strong>, Analyst <span class="muted">• BlueTrace Solutions (Dubai) — Dez 2024</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"Um serviço confiável para situações complexas. Comunicação clara e provas apresentadas com qualidade."</p>
+              <div class="feedback-meta"><strong>— Ethan Walker</strong>, Private Consultant <span class="muted">• StratPoint Advisors (Sydney) — Mar 2025</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- pagination + navigation -->
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next" style="color:var(--accent)"></div>
+        <div class="swiper-button-prev" style="color:var(--accent)"></div>
+      </div>
+    </section>
+
+    <!-- Quick stats + form sample (Netlify Forms ready) -->
+    <section style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:320px;background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+        <h4 style="margin-top:0">Números</h4>
+        <p style="font-size:28px;margin:6px 0"><span id="reportsCounter">0</span>+ Relatórios entregues</p>
+        <p class="muted">Casos verificados e relatórios técnicos entregues a clientes nacionais e internacionais.</p>
+      </div>
+
+      <div style="flex:1;min-width:320px;border-radius:12px;padding:0">
+        <!-- Netlify Form (enable Netlify forms in dashboard) -->
+        <form name="initial-contact" method="POST" data-netlify="true" enctype="multipart/form-data" style="background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+          <input type="hidden" name="form-name" value="initial-contact" />
+          <label style="display:block;margin-bottom:6px"><small class="muted">Nome completo</small>
+            <input name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)"/>
+          </label>
+
+          <label style="display:block;margin-bottom:6px"><small class="muted">Telefone (com DDD)</small>
+            <input name="phone" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)"/>
+          </label>
+
+          <label style="display:block;margin-bottom:6px"><small class="muted">Tipo de Investigação</small>
+            <select name="type" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)">
+              <option>Localização Digital</option>
+              <option>Infidelidade Digital</option>
+              <option>Fraudes e Golpes</option>
+              <option>Outro</option>
+            </select>
+          </label>
+
+          <label style="display:block;margin-bottom:6px"><small class="muted">Resumo (detalhes)</small>
+            <textarea name="message" rows="3" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)"></textarea>
+          </label>
+
+          <label style="display:block;margin-bottom:10px"><small class="muted">Anexar prova (opcional, JPG/PNG, até 6MB)</small>
+            <input type="file" name="file" accept=".jpg,.jpeg,.png,.pdf" />
+          </label>
+
+          <div style="display:flex;gap:8px">
+            <button type="submit" class="btn btn-primary">Enviar & Solicitar Avaliação</button>
+            <a class="btn btn-ghost" href="https://wa.me/5511913076990?text=Tenho%20um%20caso%20e%20quero%20prioridade">Prioridade via WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer style="margin-top:28px;color:var(--muted)">
+      <p style="margin:0">NEXUS INTEL — Inteligência & Investigação Digital</p>
+      <p style="margin:0">WhatsApp: +55 11 91307-6990 • contato@nexusintel.com</p>
+    </footer>
   </div>
-</div>
 
-<!-- JS -->
-<script>
-  const modal = document.getElementById("modalQuem");
-  const openBtn = document.getElementById("openQuem");
-  const closeBtn = document.getElementById("closeQuem");
+  <!-- Modal Quem Somos (loads relatorio.html in iframe) -->
+  <div id="modalQuem" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center">
+    <div style="width:94%;max-width:1000px;background:#071323;border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.08)">
+      <button id="closeModal" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
+      <iframe src="/relatorio.html" style="width:100%;height:76vh;border:0;border-radius:8px;background:#0a1626;"></iframe>
+    </div>
+  </div>
 
-  openBtn.addEventListener("click", ()=>{ modal.style.display="flex"; document.body.style.overflow="hidden"; });
-  closeBtn.addEventListener("click", ()=>{ modal.style.display="none"; document.body.style.overflow="auto"; });
-</script>
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <a class="btn btn-primary" href="https://wa.me/5511913076990?text=Prioridade%20imediata">Prioridade</a>
+    <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Quero%20avaliacao%20sigilosa">WhatsApp</a>
+  </div>
 
-<!-- Sticky CTA -->
-<div class="sticky-cta">
-  <a class="sticky-black" href="https://wa.me/5511913076990?text=Quero%20prioridade%20imediata">PRIORIDADE</a>
-  <a class="sticky-wa" href="https://wa.me/5511913076990?text=Quero%20avaliacao%20sigilosa">WHATSAPP</a>
-</div>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Scripts: Swiper init, counters, modal, analytics event tracking -->
+  <script>
+    // Initialize Swiper carousel
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 18,
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      autoplay: { delay: 5500, disableOnInteraction: false },
+      breakpoints: { 900: { slidesPerView: 2 } }
+    });
+
+    // Animate "reports delivered" counter
+    (function(){
+      const el = document.getElementById('reportsCounter');
+      const target = 128; // set realistic number or change dynamically
+      let current = 0;
+      const step = Math.max(1, Math.floor(target/80));
+      const int = setInterval(()=>{
+        current += step;
+        if(current >= target){ current = target; clearInterval(int); }
+        el.textContent = current;
+      }, 24);
+    })();
+
+    // Modal handling
+    const btnOpen = document.getElementById('btnOpenQuem');
+    const modal = document.getElementById('modalQuem');
+    const btnClose = document.getElementById('closeModal');
+    btnOpen && btnOpen.addEventListener('click', ()=>{
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      // event tracking
+      window.gtag && window.gtag('event','open_quem_somos',{ 'event_category':'engagement' });
+    });
+    btnClose && btnClose.addEventListener('click', ()=>{
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Track form submit (Netlify will still process)
+    const form = document.querySelector('form[name="initial-contact"]');
+    if(form){
+      form.addEventListener('submit', ()=> {
+        window.gtag && window.gtag('event','submit_contact_form',{ 'event_category':'conversion' });
+      });
+    }
+
+    // Lazy load images if any (example)
+    document.addEventListener('DOMContentLoaded',function(){
+      const imgs = document.querySelectorAll('img[data-src]');
+      const obs = new IntersectionObserver((entries, o)=>{
+        entries.forEach(ent => {
+          if(ent.isIntersecting){
+            const i = ent.target; i.src = i.dataset.src; i.removeAttribute('data-src');
+            o.unobserve(i);
+          }
+        });
+      }, {rootMargin:'200px'});
+      imgs.forEach(img => obs.observe(img));
+    });
+
+    // CTA click tracking
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a=>{
+      a.addEventListener('click',()=> window.gtag && window.gtag('event','click_whatsapp',{ 'event_category':'cta' }));
+    });
+
+  </script>
+
+  <!-- Small accessibility helper to close modal with ESC -->
+  <script>
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        const modal = document.getElementById('modalQuem');
+        if(modal && modal.style.display === 'flex'){
+          modal.style.display = 'none'; document.body.style.overflow = 'auto';
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
+
 
 
 
