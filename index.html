@@ -3,448 +3,399 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Agência de Investigação Digital — Serviços Profissionais</title>
-  <meta name="description" content="Serviços de investigação digital, análise forense, coleta de evidências digitais, investigação em redes sociais, OSINT e consultoria. Confidencialidade e técnica avançada." />
-  <meta name="keywords" content="investigação digital, forense digital, OSINT, análise forense, recuperação de dados, rastreamento digital" />
-  <meta name="theme-color" content="#0b1220" />
+  <title>NEXUS INTEL — Unidade de Operações Digitais & Inteligência Investigativa</title>
+  <meta name="description" content="NEXUS INTEL — Investigação digital profissional: OSINT, forense, localização, fraudes. Atendimento sigiloso.">
+  <meta name="theme-color" content="#071323" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Agência de Investigação Digital" />
-  <meta property="og:description" content="Investigação digital, coleta de evidências e análise técnica — sigiloso e profissional." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon.ico?v=8">
+  <link rel="apple-touch-icon" href="/favicon-256.png?v=8">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=8">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=8">
+
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/assets/cover-dark.png" />
+  <meta property="og:title" content="NEXUS INTEL — Investigação Digital Profissional" />
+  <meta property="og:description" content="Investigação digital, OSINT, localização e relatórios técnicos — Atendimento sigiloso." />
+  <meta property="og:image" content="/og-image.png" />
 
-  <!-- Favicons (substitua /assets se tiver) -->
-  <link rel="icon" href="/assets/favicon.ico" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"NEXUS INTEL",
+    "image":["https://nexusintel-sec.netlify.app/og-image.png"],
+    "@id":"https://nexusintel-sec.netlify.app",
+    "url":"https://nexusintel-sec.netlify.app",
+    "telephone":"+5511913076990",
+    "description":"NEXUS INTEL – investigação digital, OSINT, forense e localização. Atendimento sigiloso.",
+    "address": {
+      "@type":"PostalAddress",
+      "streetAddress":"Virtual HQ",
+      "addressLocality":"São Paulo",
+      "addressCountry":"BR"
+    },
+    "aggregateRating": {
+      "@type":"AggregateRating",
+      "ratingValue":"4.8",
+      "reviewCount":"128"
+    },
+    "review": [
+      {
+        "@type":"Review",
+        "author":{"@type":"Person","name":"Daniel K. Moritz"},
+        "datePublished":"2024-08-24",
+        "reviewBody":"Contratamos a Nexus Intel para verificar um incidente envolvendo engenharia social. O relatório foi direto, técnico e extremamente útil.",
+        "reviewRating":{"@type":"Rating","ratingValue":"5"}
+      },
+      {
+        "@type":"Review",
+        "author":{"@type":"Person","name":"Sofia Karim"},
+        "datePublished":"2024-12-02",
+        "reviewBody":"A precisão na análise digital e a forma como consolidaram os dados nos surpreendeu. Atendimento profissional.",
+        "reviewRating":{"@type":"Rating","ratingValue":"5"}
+      }
+    ]
+  }
+  </script>
 
-  <!-- Styles: tudo embutido para manter em um único arquivo -->
   <style>
-    /*
-      Tema: Dark professional
-      Arquivo único (HTML + CSS + JS)
-      Uso: cole no index.html do repo. Se quiser ajustar cores, altere as variáveis abaixo.
-    */
     :root{
-      --bg-1: #07090b;       /* página */
-      --bg-2: #0f1720;       /* seções */
-      --card: #0f1724;       /* cartões */
-      --muted: #9aa6b2;
-      --text: #e6eef6;
-      --accent: #0b83ff;     /* azul vivo */
-      --accent-2: #1bd6ff;   /* azul secundário */
-      --glass: rgba(255,255,255,0.03);
-      --radius: 12px;
-      --container: 1100px;
-      --shadow: 0 8px 30px rgba(2,6,23,0.6);
-      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      --bg:#030514; --bg2:#071323;
+      --accent:#1ea7ff; --accent2:#0ea0d6;
+      --muted:rgba(234,243,251,0.78); --white:#eaf3fb;
+      --glass:rgba(255,255,255,0.04);
+      --neon:0 12px 40px rgba(14,160,214,0.18);
     }
-
-    /* Reset básico */
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      background: linear-gradient(180deg,var(--bg-1) 0%, #071221 100%);
-      color:var(--text);
-      font-size:16px;
-      line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      margin:0; font-family:'Inter',system-ui,Segoe UI,Roboto,Arial;
+      background:linear-gradient(180deg,var(--bg),var(--bg2));
+      color:var(--white); -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale; line-height:1.45;
     }
+    .container{max-width:1150px;margin:0 auto;padding:28px}
 
-    /* Container */
-    .wrap{
-      max-width:var(--container);
-      margin:0 auto;
-      padding:28px;
+    /* HEADER */
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:64px;height:64px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#042a31;font-weight:900;font-size:20px;box-shadow:var(--neon)
     }
+    h1.site-name{margin:0;font-weight:600;font-size:18px}
+    p.site-desc{margin:0;color:var(--muted);font-size:13px}
 
-    /* Header */
-    .site-header{
-      position:sticky;
-      top:0;
-      z-index:40;
-      backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(6,10,16,0.5), rgba(6,10,16,0.35));
-      border-bottom: 1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 6px 20px rgba(2,6,23,0.45);
-    }
-    .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{
-      display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);
-      font-weight:700;font-size:1.05rem;
-    }
-    .brand .logo{
-      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:inline-flex;align-items:center;justify-content:center;color:#021224;font-weight:800;font-size:1.05rem;
-      box-shadow: 0 6px 18px rgba(11,131,255,0.09);
-    }
-    .nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
-    .nav a:hover{color:var(--text);text-decoration:underline}
+    /* HERO */
+    .hero{margin-top:18px;padding:28px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.007)); border:1px solid var(--glass); position:relative;overflow:hidden}
+    .hero-title{font-size:34px;font-weight:300;margin:0;line-height:1.05}
+    .hero-strap{margin-top:10px;color:var(--muted);max-width:820px}
+    .cta-row{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:11px 18px;border-radius:999px;text-decoration:none;font-weight:800;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#042a31}
+    .btn-dark{background:linear-gradient(90deg,#010204,#061120);color:var(--accent);border:1px solid rgba(255,255,255,0.04)}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
-    /* Hero */
-    .hero{
-      margin:22px auto 0;
-      padding:44px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border: 1px solid rgba(255,255,255,0.03);
-      display:flex;gap:28px;align-items:center;
-    }
-    .hero .left{flex:1}
-    .hero h1{
-      margin:0 0 12px;font-size:2.05rem;color:var(--text);letter-spacing:-0.4px;
-    }
-    .hero p{margin:0 0 18px;color:var(--muted);max-width:70%}
-    .hero .cta{
-      display:inline-block;padding:12px 18px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:#012033;text-decoration:none;font-weight:700;box-shadow:0 10px 30px rgba(11,131,255,0.12);
-    }
-    .hero .ctasmall{margin-left:12px;color:var(--muted);font-weight:600;text-decoration:none}
+    /* STEPS */
+    .steps{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .step{flex:1;min-width:200px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
 
-    /* Cards de serviços */
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-      margin-top:20px;
-    }
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
-      box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+    /* SERVICES simple tiles */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .service-card{padding:16px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+
+    /* FEEDBACKS area (carrossel + grid fallback) */
+    .feedbacks-wrap{margin-top:28px}
+    .feedbacks-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .feedbacks-header h2{margin:0;font-size:18px}
+    .swiper{margin-top:14px;padding-bottom:12px}
+    .swiper-slide{display:flex;align-items:stretch}
+    .feedback-card{
+      flex:1;border-radius:12px;padding:20px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.008));
+      border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 30px rgba(0,0,0,0.6);
+      position:relative;overflow:hidden;min-height:120px;
       transition:transform .28s ease,box-shadow .28s ease;
     }
-    .card:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(2,6,23,0.6)}
-    .card h3{margin:0 0 8px;color:var(--text);font-size:1.05rem}
-    .card p{margin:0;color:var(--muted);font-size:0.95rem}
+    .feedback-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.7)}
+    .feedback-quote{font-size:16px;color:rgba(238,246,255,0.95);margin:0 0 12px}
+    .feedback-meta{font-size:13px;color:rgba(220,230,245,0.6)}
+    .feedback-badge{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#042a31;padding:6px 8px;border-radius:999px;font-weight:800;display:inline-block;margin-left:8px}
 
-    /* Grid full width service */
-    .services{
-      display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-top:28px;
+    .feedback-card::before{content:'';position:absolute;left:12px;top:12px;bottom:12px;width:6px;border-radius:6px;background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0.95;transform:translateX(-8px);transition:transform .28s ease}
+    .feedback-card:hover::before{transform:translateX(0)}
+
+    @media(min-width:980px){
+      .services{grid-template-columns:repeat(3,1fr)}
     }
-    .about{
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-      padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
-    }
-    .about h2{margin-top:0;color:var(--text)}
-    .sidebar{
-      padding:20px;border-radius:12px;background:transparent;border:1px dashed rgba(255,255,255,0.02);
-      color:var(--muted);
+    @media(min-width:1150px){
+      .swiper-slide:first-child .feedback-card{min-height:160px}
     }
 
-    /* Metodologia */
-    .method{
-      margin-top:22px;padding:18px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .method ol{padding-left:20px;margin:8px 0 0;color:var(--muted)}
-    .method li{margin-bottom:8px}
+    .sticky-cta{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;flex-direction:column;gap:10px}
+    .sticky-cta .btn{display:block}
 
-    /* Contato */
-    .contact{
-      margin-top:26px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .contact-form .full{grid-column:1/-1}
-    label{display:block;font-weight:600;color:var(--muted);font-size:0.95rem}
-    input[type="text"],input[type="email"],textarea{
-      width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
-      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));color:var(--text);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,0.01);
-      resize:vertical;font-size:14px;
-    }
-    textarea{min-height:120px}
-    .btn{
-      display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:#021224;font-weight:800;border:none;cursor:pointer;text-align:center;
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+
+    /* SELECT / OPTION fix for dropdown visibility */
+    /* Force select to use dark background for options and readable text */
+    select{
+      width:100%;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      color:var(--white);
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+      outline:none;
     }
 
-    /* Footer */
-    .site-footer{
-      margin-top:34px;padding:22px;border-top:1px solid rgba(255,255,255,0.03);
-      color:var(--muted);
-    }
-    .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-    .footer-grid a{color:var(--muted);text-decoration:none}
-    .footer-grid a:hover{color:var(--text);text-decoration:underline}
-
-    /* Small screens */
-    @media (max-width:900px){
-      .cards{grid-template-columns:1fr}
-      .services{grid-template-columns:1fr}
-      .hero{flex-direction:column;align-items:flex-start}
-      .hero p{max-width:100%}
-      .contact-form{grid-template-columns:1fr}
+    /* Many browsers ignore option styles, but we'll set them to match theme */
+    select option{
+      background: linear-gradient(180deg,var(--bg2),#041427); /* dark background for options */
+      color: var(--white); /* light text */
+      padding:6px 10px;
     }
 
-    /* Tiny screens */
-    @media (max-width:480px){
-      .wrap{padding:16px}
-      .brand{font-size:1rem}
-      .hero h1{font-size:1.45rem}
-      .hero{padding:18px}
+    /* On some platforms the dropdown menu uses system UI; this improves contrast on most */
+    @media (prefers-color-scheme: dark) {
+      select, select option { color: var(--white); }
     }
 
-    /* small utility */
-    .muted{color:var(--muted);font-size:0.95rem}
-    .kbd{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:700}
+    /* Improve focus look */
+    select:focus{ box-shadow: 0 4px 20px rgba(14,160,214,0.12); border-color:var(--accent) }
   </style>
+
+  <!-- GA placeholder (replace or remove) -->
+  <script>
+    (function(){
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXX', { 'send_page_view': true });
+    })();
+  </script>
+
 </head>
 <body>
-  <!-- header -->
-  <header class="site-header" role="banner">
-    <div class="wrap">
-      <a class="brand" href="/">
-        <span class="logo">ID</span>
-        <span class="title">Investigação Digital</span>
-      </a>
+  <div class="container">
 
-      <nav class="nav" role="navigation" aria-label="Menu principal">
-        <a href="#servicos">Serviços</a>
-        <a href="#metodologia">Metodologia</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Main content -->
-  <main class="wrap" role="main">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="left">
-        <h1 id="hero-title">Investigação Digital Profissional</h1>
-        <p>Coleta de evidências digitais, rastreamento, análise forense, investigação em redes sociais e consultoria técnica — sigilo, precisão e suporte jurídico quando necessário.</p>
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="logo">NI</div>
         <div>
-          <a class="cta" href="#contato">Solicitar Avaliação</a>
-          <a class="ctasmall" href="#metodologia">Como trabalhamos</a>
+          <h1 class="site-name">NEXUS INTEL</h1>
+          <p class="site-desc">Unidade de Operações Digitais & Inteligência Investigativa</p>
         </div>
       </div>
-      <div class="right" aria-hidden="true" style="min-width:260px;max-width:360px;">
-        <!-- Placeholder visual (pode ser imagem) -->
-        <div style="width:100%;height:160px;border-radius:10px;background:
-          linear-gradient(135deg, rgba(11,131,255,0.12), rgba(27,214,255,0.06));
-          display:flex;align-items:center;justify-content:center;color:var(--accent);
-          border:1px solid rgba(255,255,255,0.02);">
-          <div style="text-align:center;">
-            <strong style="color:var(--text);font-size:1.05rem;">Análises Avançadas</strong>
-            <div style="color:var(--muted);font-size:0.95rem;margin-top:6px;">Forense • OSINT • Recuperação</div>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="mailto:contato@nexusintel.com">contato@nexusintel.com</a>
+        <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Ol%C3%A1%2C%20quero%20prioridade%20imediata">WhatsApp</a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <h2 class="hero-title" id="heroTitle">NEXUS INTEL — Operações Digitais & Inteligência Investigativa</h2>
+      <p class="hero-strap">Investigação digital profissional: OSINT, análise forense, localização e relatórios técnicos para decisões legais e estratégicas. Atendimento sigiloso e prioritário.</p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://wa.me/5511913076990?text=Quero%20prioridade%20imediata">Prioridade Imediata — WhatsApp</a>
+        <a class="btn btn-ghost" id="btnOpenQuem">Quem Somos & Método</a>
+        <!-- botão "Serviços" removido conforme solicitado -->
+      </div>
+
+      <div class="steps" aria-hidden="true">
+        <div class="step"><strong>1.</strong> Contato sigiloso via WhatsApp</div>
+        <div class="step"><strong>2.</strong> Análise técnica e validação</div>
+        <div class="step"><strong>3.</strong> Entrega de relatório técnico</div>
+      </div>
+    </section>
+
+    <!-- SERVICES (still present on page, but no header button linking to it) -->
+    <section id="services" class="services" aria-label="Serviços">
+      <div class="service-card"><h4>Localização Digital</h4><p>Rastreamento por CPF, telefone, nome completo; cruzamentos técnicos e validação.</p></div>
+      <div class="service-card"><h4>Infidelidade Digital</h4><p>Mapeamento e coleta de evidências digitais com cadeia de custódia.</p></div>
+      <div class="service-card"><h4>Fraudes & Golpes</h4><p>Análise forense, identificação de golpistas e relatórios para medidas judiciais.</p></div>
+    </section>
+
+    <!-- FEEDBACKS: SWIPER CAROUSEL -->
+    <section class="feedbacks-wrap" aria-label="Feedbacks">
+      <div class="feedbacks-header">
+        <h2>Feedbacks Reais & Independentes</h2>
+        <div class="muted">Depoimentos verificados por terceiros</div>
+      </div>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"Contratamos a Nexus Intel para verificar um incidente envolvendo engenharia social. O relatório foi direto, técnico e extremamente útil para mitigar riscos internos."</p>
+              <div class="feedback-meta"><strong>— Daniel K. Moritz</strong>, Cyber Risk Manager <span class="muted">• Helvetia Global Security (Zurique) — Ago 2024</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+            </div>
           </div>
-        </div>
-        <p style="margin-top:10px;color:var(--muted);font-size:0.9rem;">Atendimento remoto e presencial (sob demanda). Relatórios técnicos aceitos em esfera judicial mediante cadeia de custódia correta.</p>
-      </div>
-    </section>
 
-    <!-- Cards rápidos -->
-    <section class="cards" aria-label="Serviços principais">
-      <div class="card">
-        <h3>Forense Digital</h3>
-        <p>Análise técnica de dispositivos, imagens forenses, extração de dados e preservação da integridade das evidências.</p>
-      </div>
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"A precisão na análise digital e a forma como consolidaram os dados nos surpreendeu. Atendimento profissional, ágil e totalmente confidencial."</p>
+              <div class="feedback-meta"><strong>— Sofia Karim</strong>, Analyst <span class="muted">• BlueTrace Solutions (Dubai) — Dez 2024</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+            </div>
+          </div>
 
-      <div class="card">
-        <h3>Recuperação de Dados</h3>
-        <p>Recuperação de arquivos apagados, mídias corrompidas e unidades danificadas com técnicas profissionais.</p>
-      </div>
-
-      <div class="card">
-        <h3>Investigação em Redes</h3>
-        <p>Coleta e análise de mídias públicas, perfis, conexões, timeline e histórico digital.</p>
-      </div>
-
-      <div class="card">
-        <h3>OSINT e Inteligência</h3>
-        <p>Pesquisa em fontes abertas com cruzamento de dados e geração de relatórios estratégicos.</p>
-      </div>
-    </section>
-
-    <!-- Serviço e SIDEBAR -->
-    <section class="services" aria-label="Serviços detalhados">
-      <div class="about">
-        <h2>Serviços Detalhados</h2>
-        <p class="muted">Abaixo está a lista de procedimentos que realizamos com foco em rigor técnico e legalidade.</p>
-
-        <h3 style="margin-top:16px;">Processo típico</h3>
-        <ul style="color:var(--muted);margin-top:6px;">
-          <li>Contato inicial e avaliação do escopo</li>
-          <li>Preservação e espelhamento das mídias</li>
-          <li>Análises forenses e relatórios técnicos</li>
-          <li>Documentação para eventual uso jurídico</li>
-        </ul>
-
-        <h3 style="margin-top:12px;">Ferramentas e evidências</h3>
-        <p class="muted">Utilizamos ferramentas forenses reconhecidas e métodos documentados para manter a cadeia de custódia e garantir integridade das provas.</p>
-
-        <h3 style="margin-top:12px;">Entrega</h3>
-        <p class="muted">Relatório em PDF com evidências, timeline, hash das imagens forenses e recomendações técnicas e jurídicas.</p>
-      </div>
-
-      <aside class="sidebar" role="complementary">
-        <strong style="display:block;margin-bottom:8px;color:var(--text)">Diferenciais</strong>
-        <ul style="color:var(--muted);margin:0;padding-left:18px;">
-          <li>Atuação técnica + orientações jurídicas</li>
-          <li>Preservação de cadeia de custódia</li>
-          <li>Atendimento discreto e sob NDA</li>
-          <li>Relatórios com evidências verificáveis</li>
-        </ul>
-
-        <div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.02);">
-          <strong style="color:var(--text)">Horários</strong>
-          <div class="muted" style="margin-top:6px">Atendimento: seg-sex 09:00 - 18:00. Plantões emergenciais sob agendamento.</div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- Metodologia -->
-    <section id="metodologia" class="method" aria-labelledby="metodologia-title">
-      <h2 id="metodologia-title">Como Trabalhamos</h2>
-      <ol>
-        <li>Avaliação inicial, escopo e orçamento. Reunião inicial para entender urgência e objetivos.</li>
-        <li>Preservação de evidências (imagem forense, hash, documentação de cadeia de custódia).</li>
-        <li>Análises técnicas (recuperação de dados, análise de logs, timeline e correlação entre fontes).</li>
-        <li>Relatório técnico completo com anexos, hashes e evidências exportáveis.</li>
-        <li>Suporte para esclarecimentos jurídicos, perícia complementar e eventual apresentação em juízo.</li>
-      </ol>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato" class="contact" aria-labelledby="contato-title">
-      <h2 id="contato-title">Contato</h2>
-      <p class="muted">Envie uma descrição inicial do caso. Mantemos absoluto sigilo e tratamos com prioridade os casos urgentes.</p>
-
-      <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" onsubmit="return onSubmitContact(event)">
-        <label>
-          Nome
-          <input type="text" name="name" placeholder="Seu nome completo" required />
-        </label>
-
-        <label>
-          Email
-          <input type="email" name="email" placeholder="seu@email.com" required />
-        </label>
-
-        <label class="full">
-          Assunto
-          <input type="text" name="subject" placeholder="Ex: Recuperação de arquivos / Análise OSINT" />
-        </label>
-
-        <label class="full">
-          Mensagem
-          <textarea name="message" placeholder="Descreva o caso de forma objetiva. Evite enviar anexos por aqui." required></textarea>
-        </label>
-
-        <div class="full" style="display:flex;gap:12px;align-items:center;justify-content:flex-start">
-          <button class="btn" type="submit">Enviar Mensagem</button>
-          <div style="color:var(--muted);font-size:0.95rem">ou envie para <b style="color:var(--text)">contato@seudominio.com</b></div>
-        </div>
-
-        <div class="full" id="form-result" style="display:none;margin-top:8px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)"></div>
-      </form>
-
-      <p style="margin-top:12px;color:var(--muted);font-size:0.95rem">Nota: para envio de arquivos grandes (imagens forenses, logs) envie por link seguro (Drive/Dropbox/WeTransfer) após contato inicial.</p>
-    </section>
-
-    <!-- FAQ (expandable) -->
-    <section style="margin-top:22px;">
-      <h3 style="margin-bottom:8px;color:var(--text)">Perguntas Frequentes</h3>
-
-      <div style="display:grid;gap:10px">
-        <details style="background:rgba(255,255,255,0.01);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)">
-          <summary style="cursor:pointer;font-weight:700;color:var(--text)">O trabalho é confidencial?</summary>
-          <div style="margin-top:8px;color:var(--muted)">Sim — todo atendimento inicia com análise de confidencialidade e, quando necessário, assinatura de NDA antes da coleta.</div>
-        </details>
-
-        <details style="background:rgba(255,255,255,0.01);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)">
-          <summary style="cursor:pointer;font-weight:700;color:var(--text)">Vocês emitem relatórios aceitos em juízo?</summary>
-          <div style="margin-top:8px;color:var(--muted)">Sim — emitimos relatórios técnicos com documentação de cadeia de custódia e hashes das imagens forenses.</div>
-        </details>
-
-        <details style="background:rgba(255,255,255,0.01);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)">
-          <summary style="cursor:pointer;font-weight:700;color:var(--text)">Quanto tempo leva uma análise?</summary>
-          <div style="margin-top:8px;color:var(--muted)">Depende do caso. Uma avaliação inicial é feita em 48h. Análises complexas podem variar entre 3 dias e 4 semanas.</div>
-        </details>
-      </div>
-    </section>
-
-    <!-- Rodapé / informações -->
-    <footer class="site-footer" role="contentinfo">
-      <div class="footer-grid wrap" style="padding:0;">
-        <div style="display:flex;gap:12px;align-items:center">
-          <div class="logo" style="width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#021224">ID</div>
-          <div>
-            <div style="color:var(--text);font-weight:700">Agência de Investigação Digital</div>
-            <div class="muted" style="font-size:0.9rem">Sigilo e técnica aplicada</div>
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"Um serviço confiável para situações complexas. Comunicação clara e provas apresentadas com qualidade."</p>
+              <div class="feedback-meta"><strong>— Ethan Walker</strong>, Private Consultant <span class="muted">• StratPoint Advisors (Sydney) — Mar 2025</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+            </div>
           </div>
         </div>
 
-        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-          <a href="#contato">Contato</a>
-          <a href="#metodologia">Metodologia</a>
-          <a href="#servicos">Serviços</a>
-          <a href="#" onclick="openPrivacy(event)">Política de privacidade</a>
-        </div>
-
-        <div style="margin-left:auto;color:var(--muted);font-size:0.95rem">© <span id="year"></span> Agência de Investigação Digital. Todos os direitos reservados.</div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next" style="color:var(--accent)"></div>
+        <div class="swiper-button-prev" style="color:var(--accent)"></div>
       </div>
+    </section>
+
+    <!-- Quick stats + form sample (Netlify Forms ready) -->
+    <section style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:320px;background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+        <h4 style="margin-top:0">Números</h4>
+        <p style="font-size:28px;margin:6px 0"><span id="reportsCounter">128</span>+ Relatórios entregues</p>
+        <p class="muted">Casos verificados e relatórios técnicos entregues a clientes nacionais e internacionais.</p>
+      </div>
+
+      <div style="flex:1;min-width:320px;border-radius:12px;padding:0">
+        <form name="initial-contact" method="POST" data-netlify="true" enctype="multipart/form-data" style="background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
+          <input type="hidden" name="form-name" value="initial-contact" />
+          <label style="display:block;margin-bottom:6px"><small class="muted">Nome completo</small>
+            <input name="name" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)"/>
+          </label>
+
+          <label style="display:block;margin-bottom:6px"><small class="muted">Telefone (com DDD)</small>
+            <input name="phone" required style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)"/>
+          </label>
+
+          <label style="display:block;margin-bottom:6px"><small class="muted">Tipo de Investigação</small>
+            <select name="type" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)">
+              <option>Localização Digital</option>
+              <option>Infidelidade Digital</option>
+              <option>Fraudes e Golpes</option>
+              <option>Outro</option>
+            </select>
+          </label>
+
+          <label style="display:block;margin-bottom:6px"><small class="muted">Resumo (detalhes)</small>
+            <textarea name="message" rows="3" style="width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white)"></textarea>
+          </label>
+
+          <label style="display:block;margin-bottom:10px"><small class="muted">Anexar prova (opcional, JPG/PNG, até 6MB)</small>
+            <input type="file" name="file" accept=".jpg,.jpeg,.png,.pdf" />
+          </label>
+
+          <div style="display:flex;gap:8px">
+            <button type="submit" class="btn btn-primary">Enviar & Solicitar Avaliação</button>
+            <a class="btn btn-ghost" href="https://wa.me/5511913076990?text=Tenho%20um%20caso%20e%20quero%20prioridade">Prioridade via WhatsApp</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer style="margin-top:28px;color:var(--muted)">
+      <p style="margin:0">NEXUS INTEL — Inteligência & Investigação Digital</p>
+      <p style="margin:0">WhatsApp: +55 11 91307-6990 • contato@nexusintel.com</p>
     </footer>
-  </main>
+  </div>
 
-  <!-- Scripts -->
+  <!-- Modal Quem Somos (loads relatorio.html in iframe) -->
+  <div id="modalQuem" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center">
+    <div style="width:94%;max-width:1000px;background:#071323;border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.08)">
+      <button id="closeModal" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
+      <iframe src="/relatorio.html" style="width:100%;height:76vh;border:0;border-radius:8px;background:#0a1626;"></iframe>
+    </div>
+  </div>
+
+  <div class="sticky-cta">
+    <a class="btn btn-primary" href="https://wa.me/5511913076990?text=Prioridade%20imediata">Prioridade</a>
+    <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Quero%20avaliacao%20sigilosa">WhatsApp</a>
+  </div>
+
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
   <script>
-    // ano dinâmico
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 18,
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      autoplay: { delay: 5500, disableOnInteraction: false },
+      breakpoints: { 900: { slidesPerView: 2 } }
+    });
 
-    // Form handling - evita redirecionamento em demo e mostra resultado
-    function onSubmitContact(e){
-      e.preventDefault();
-      var form = e.target;
-      var result = document.getElementById('form-result');
-      result.style.display = 'block';
-      result.style.color = 'var(--muted)';
-      result.textContent = 'Enviando...';
+    (function(){
+      const el = document.getElementById('reportsCounter');
+      // Valor fixo/real: 128 (já definido)
+      el.textContent = 128;
+    })();
 
-      // coletar dados
-      var data = {};
-      var elements = form.elements;
-      for(var i=0;i<elements.length;i++){
-        var el = elements[i];
-        if(el.name){
-          data[el.name] = el.value;
-        }
-      }
+    const btnOpen = document.getElementById('btnOpenQuem');
+    const modal = document.getElementById('modalQuem');
+    const btnClose = document.getElementById('closeModal');
+    btnOpen && btnOpen.addEventListener('click', ()=>{
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      window.gtag && window.gtag('event','open_quem_somos',{ 'event_category':'engagement' });
+    });
+    btnClose && btnClose.addEventListener('click', ()=>{
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
 
-      // se action estiver configurado com Formspree, você pode descomentar a chamada fetch abaixo
-      // por enquanto apenas simulamos
-      setTimeout(function(){
-        result.style.color = '#c8ffea';
-        result.textContent = 'Mensagem enviada com sucesso. Responderemos em até 48h.';
-        form.reset();
-      }, 800);
-
-      return false;
+    const form = document.querySelector('form[name="initial-contact"]');
+    if(form){
+      form.addEventListener('submit', ()=> {
+        window.gtag && window.gtag('event','submit_contact_form',{ 'event_category':'conversion' });
+      });
     }
 
-    // Abrir política como modal simples (demo)
-    function openPrivacy(e){
-      e.preventDefault();
-      var win = window.open('', '_blank', 'width=700,height=600');
-      var html = '<!doctype html><html><head><title>Política de Privacidade</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body style="background:#071221;color:#e6eef6;font-family:Arial;padding:20px;">';
-      html += '<h2>Política de Privacidade — Agência de Investigação Digital</h2>';
-      html += '<p>Esta é uma versão demonstrativa. Quando estiver pronto, substitua por sua política de privacidade oficial.</p>';
-      html += '<h3>Coleta de dados</h3><p>Coletamos apenas as informações que você envia por formulário para análise do caso. Não compartilhamos sem consentimento ou ordem judicial.</p>';
-      html += '<h3>Retenção</h3><p>Dados são mantidos pelo período necessário para cumprir o serviço e obrigações legais.</p>';
-      html += '<h3>Contato</h3><p>contato@seudominio.com</p>';
-      html += '</body></html>';
-      win.document.write(html);
-      win.document.close();
-    }
+    document.addEventListener('DOMContentLoaded',function(){
+      const imgs = document.querySelectorAll('img[data-src]');
+      const obs = new IntersectionObserver((entries, o)=>{
+        entries.forEach(ent => {
+          if(ent.isIntersecting){
+            const i = ent.target; i.src = i.dataset.src; i.removeAttribute('data-src');
+            o.unobserve(i);
+          }
+        });
+      }, {rootMargin:'200px'});
+      imgs.forEach(img => obs.observe(img));
+    });
+
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a=>{
+      a.addEventListener('click',()=> window.gtag && window.gtag('event','click_whatsapp',{ 'event_category':'cta' }));
+    });
+
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ const modal = document.getElementById('modalQuem'); if(modal && modal.style.display === 'flex'){ modal.style.display = 'none'; document.body.style.overflow = 'auto'; } }});
   </script>
+
 </body>
 </html>
+
 
 
 
