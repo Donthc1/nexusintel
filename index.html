@@ -20,7 +20,7 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="NEXUS INTEL — Investigação Digital Profissional" />
-  <meta property="og:description" content="Investigação digital, OSINT, localização e relatórios técnicos — Atendimento sigiloso." />
+  <meta property="og:description" content="Investigação digital, OSINT, localização and relatórios técnicos — Atendimento sigiloso." />
   <meta property="og:image" content="/og-image.png" />
 
   <script type="application/ld+json">
@@ -203,6 +203,8 @@
       <div class="header-actions">
         <a class="btn btn-ghost" href="mailto:contato@nexusintel.com">contato@nexusintel.com</a>
         <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Ol%C3%A1%2C%20quero%20prioridade%20imediata">WhatsApp</a>
+        <!-- ADDED: Privacy Policy button -->
+        <button class="btn btn-ghost" id="btnPrivacy" aria-haspopup="dialog" aria-controls="modalPrivacy">Política de Privacidade</button>
       </div>
     </header>
 
@@ -329,6 +331,32 @@
     </div>
   </div>
 
+  <!-- ADDED: Privacy Policy Modal -->
+  <div id="modalPrivacy" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:10000;align-items:center;justify-content:center">
+    <div style="width:94%;max-width:900px;background:#071323;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.08);color:var(--white);max-height:90vh;overflow:auto;">
+      <button id="closePrivacy" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
+      <h2 style="margin-top:6px;">Política de Privacidade — NEXUS INTEL</h2>
+      <p class="muted">Esta é uma versão demonstrativa da política de privacidade. Substitua pelo texto oficial quando disponível.</p>
+
+      <h3>1. Informações que coletamos</h3>
+      <p class="muted">Coletamos apenas as informações que você fornece voluntariamente via formulário de contato (nome, telefone, email, descrição do caso e arquivos anexados).</p>
+
+      <h3>2. Uso das informações</h3>
+      <p class="muted">As informações são utilizadas exclusivamente para analisar o caso, entrar em contato com o solicitante e produzir relatórios técnicos. Não vendemos ou compartilhamos dados com terceiros sem consentimento, salvo por exigência legal.</p>
+
+      <h3>3. Retenção</h3>
+      <p class="muted">Os dados são mantidos pelo período necessário para prestar o serviço e cumprir obrigações legais.</p>
+
+      <h3>4. Segurança</h3>
+      <p class="muted">Adotamos medidas técnicas e organizacionais para proteger os dados contra acesso não autorizado.</p>
+
+      <h3>5. Contato</h3>
+      <p class="muted">Para dúvidas ou solicitações referentes a dados pessoais, contate: <b>contato@nexusintel.com</b></p>
+
+      <p class="muted" style="margin-top:12px;font-size:13px">Versão: demo • Atualizado: 2025</p>
+    </div>
+  </div>
+
   <div class="sticky-cta">
     <a class="btn btn-primary" href="https://wa.me/5511913076990?text=Prioridade%20imediata">Prioridade</a>
     <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Quero%20avaliacao%20sigilosa">WhatsApp</a>
@@ -356,13 +384,28 @@
     const btnOpen = document.getElementById('btnOpenQuem');
     const modal = document.getElementById('modalQuem');
     const btnClose = document.getElementById('closeModal');
-    btnOpen && btnOpen.addEventListener('click', ()=>{
+    btnOpen && btnOpen.addEventListener('click', ()=> {
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       window.gtag && window.gtag('event','open_quem_somos',{ 'event_category':'engagement' });
     });
-    btnClose && btnClose.addEventListener('click', ()=>{
+    btnClose && btnClose.addEventListener('click', ()=> {
       modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // PRIVACY modal controls (added)
+    const btnPrivacy = document.getElementById('btnPrivacy');
+    const modalPrivacy = document.getElementById('modalPrivacy');
+    const btnClosePrivacy = document.getElementById('closePrivacy');
+
+    btnPrivacy && btnPrivacy.addEventListener('click', ()=> {
+      modalPrivacy.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      window.gtag && window.gtag('event','open_privacy',{ 'event_category':'engagement' });
+    });
+    btnClosePrivacy && btnClosePrivacy.addEventListener('click', ()=> {
+      modalPrivacy.style.display = 'none';
       document.body.style.overflow = 'auto';
     });
 
@@ -375,7 +418,7 @@
 
     document.addEventListener('DOMContentLoaded',function(){
       const imgs = document.querySelectorAll('img[data-src]');
-      const obs = new IntersectionObserver((entries, o)=>{
+      const obs = new IntersectionObserver((entries, o)=> {
         entries.forEach(ent => {
           if(ent.isIntersecting){
             const i = ent.target; i.src = i.dataset.src; i.removeAttribute('data-src');
@@ -386,15 +429,23 @@
       imgs.forEach(img => obs.observe(img));
     });
 
-    document.querySelectorAll('a[href*="wa.me"]').forEach(a=>{
+    document.querySelectorAll('a[href*="wa.me"]').forEach(a=> {
       a.addEventListener('click',()=> window.gtag && window.gtag('event','click_whatsapp',{ 'event_category':'cta' }));
     });
 
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ const modal = document.getElementById('modalQuem'); if(modal && modal.style.display === 'flex'){ modal.style.display = 'none'; document.body.style.overflow = 'auto'; } }});
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        const modalQ = document.getElementById('modalQuem');
+        const modalP = document.getElementById('modalPrivacy');
+        if(modalQ && modalQ.style.display === 'flex'){ modalQ.style.display = 'none'; document.body.style.overflow = 'auto'; }
+        if(modalP && modalP.style.display === 'flex'){ modalP.style.display = 'none'; document.body.style.overflow = 'auto'; }
+      }
+    });
   </script>
 
 </body>
 </html>
+
 
 
 
