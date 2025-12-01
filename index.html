@@ -93,6 +93,12 @@
     h1.site-name{margin:0;font-weight:600;font-size:18px}
     p.site-desc{margin:0;color:var(--muted);font-size:13px}
 
+    /* header nav */
+    .header-actions{display:flex;gap:10px;align-items:center}
+    .nav{display:flex;gap:12px;align-items:center;margin-left:18px}
+    .nav a{color:var(--muted);text-decoration:none;font-weight:700;padding:8px 10px;border-radius:8px}
+    .nav a:hover{background:rgba(255,255,255,0.02);color:var(--white)}
+
     /* HERO */
     .hero{margin-top:18px;padding:28px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.007)); border:1px solid var(--glass); position:relative;overflow:hidden}
     .hero-title{font-size:34px;font-weight:300;margin:0;line-height:1.05}
@@ -107,9 +113,10 @@
     .steps{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
     .step{flex:1;min-width:200px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
 
-    /* SERVICES simple tiles */
+    /* SERVICES tiles & details */
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
     .service-card{padding:16px;border-radius:12px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
+    .service-details{margin-top:12px;padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));border:1px solid rgba(255,255,255,0.02);}
 
     /* FEEDBACKS area (carrossel + grid fallback) */
     .feedbacks-wrap{margin-top:28px}
@@ -145,7 +152,6 @@
     .center{text-align:center}
 
     /* SELECT / OPTION fix for dropdown visibility */
-    /* Force select to use dark background for options and readable text */
     select{
       width:100%;
       padding:10px;
@@ -158,20 +164,14 @@
       appearance:none;
       outline:none;
     }
-
-    /* Many browsers ignore option styles, but we'll set them to match theme */
     select option{
-      background: linear-gradient(180deg,var(--bg2),#041427); /* dark background for options */
-      color: var(--white); /* light text */
+      background: linear-gradient(180deg,var(--bg2),#041427);
+      color: var(--white);
       padding:6px 10px;
     }
-
-    /* On some platforms the dropdown menu uses system UI; this improves contrast on most */
     @media (prefers-color-scheme: dark) {
       select, select option { color: var(--white); }
     }
-
-    /* Improve focus look */
     select:focus{ box-shadow: 0 4px 20px rgba(14,160,214,0.12); border-color:var(--accent) }
   </style>
 
@@ -192,18 +192,27 @@
 
     <!-- HEADER -->
     <header>
-      <div class="brand">
-        <div class="logo">NI</div>
-        <div>
-          <h1 class="site-name">NEXUS INTEL</h1>
-          <p class="site-desc">Unidade de Operações Digitais & Inteligência Investigativa</p>
+      <div style="display:flex;align-items:center">
+        <div class="brand">
+          <div class="logo">NI</div>
+          <div style="margin-left:12px">
+            <h1 class="site-name">NEXUS INTEL</h1>
+            <p class="site-desc">Unidade de Operações Digitais & Inteligência Investigativa</p>
+          </div>
         </div>
+
+        <!-- NAV -->
+        <nav class="nav" style="margin-left:24px">
+          <a href="#services">Serviços</a>
+          <a href="#feedbacks">Feedbacks</a>
+          <a href="#contato">Contato</a>
+        </nav>
       </div>
 
       <div class="header-actions">
-        <a class="btn btn-ghost" href="mailto:contato@nexusintel.com">contato@nexusintel.com</a>
+        <a class="btn btn-ghost" href="mailto:suporte.intelnexus@gmail.com">suporte.intelnexus@gmail.com</a>
         <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Ol%C3%A1%2C%20quero%20prioridade%20imediata">WhatsApp</a>
-        <!-- ADDED: Privacy Policy button -->
+        <!-- Privacy button already present earlier -->
         <button class="btn btn-ghost" id="btnPrivacy" aria-haspopup="dialog" aria-controls="modalPrivacy">Política de Privacidade</button>
       </div>
     </header>
@@ -216,7 +225,6 @@
       <div class="cta-row">
         <a class="btn btn-primary" href="https://wa.me/5511913076990?text=Quero%20prioridade%20imediata">Prioridade Imediata — WhatsApp</a>
         <a class="btn btn-ghost" id="btnOpenQuem">Quem Somos & Método</a>
-        <!-- botão "Serviços" removido conforme solicitado -->
       </div>
 
       <div class="steps" aria-hidden="true">
@@ -226,45 +234,131 @@
       </div>
     </section>
 
-    <!-- SERVICES (still present on page, but no header button linking to it) -->
+    <!-- SERVICES (detailed) -->
     <section id="services" class="services" aria-label="Serviços">
-      <div class="service-card"><h4>Localização Digital</h4><p>Rastreamento por CPF, telefone, nome completo; cruzamentos técnicos e validação.</p></div>
-      <div class="service-card"><h4>Infidelidade Digital</h4><p>Mapeamento e coleta de evidências digitais com cadeia de custódia.</p></div>
-      <div class="service-card"><h4>Fraudes & Golpes</h4><p>Análise forense, identificação de golpistas e relatórios para medidas judiciais.</p></div>
+      <!-- Tile summaries -->
+      <div class="service-card">
+        <h4>Fraudes & Golpes</h4>
+        <p class="muted">Análise forense digital para identificar fraude, mapa de evidências e relatório para medidas legais.</p>
+        <div class="service-details">
+          <strong>O que fazemos</strong>
+          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Identificação de contas e perfis envolvidos;</li>
+            <li>Rastreamento de transações digitais e padrões de golpe;</li>
+            <li>Preservação de evidências com hash e documentação;</li>
+            <li>Relatório técnico apto para advogados e autoridades.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h4>Localização de Pessoas</h4>
+        <p class="muted">Buscas técnicas para casos de pessoas desaparecidas ou para localizar devedores/terceiros.</p>
+        <div class="service-details">
+          <strong>Como atuamos</strong>
+          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Cruzamento de fontes públicas (OSINT) e registros;</li>
+            <li>Análises de geolocalização indireta e correlação de pistas;</li>
+            <li>Trabalho em campo quando necessário, com segurança e sigilo;</li>
+            <li>Entrega de relatório com possíveis locais e evidências.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <h4>Recuperação de Contas (Redes Sociais)</h4>
+        <p class="muted">Restauramos acessos e investigamos comprometimentos de perfis.</p>
+        <div class="service-details">
+          <strong>Detalhes</strong>
+          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Verificação de métodos de acesso e vetores de invasão;</li>
+            <li>Recuperação de contas e controle de sessão;</li>
+            <li>Análise de mensagens, logs e evidências para fins legais;</li>
+            <li>Orientação sobre hardening e prevenção futura.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Full-width: Investigação de Infidelidade (principal) -->
+      <div style="grid-column:1/-1;margin-top:12px" class="service-details">
+        <h3>Investigação de Infidelidade — serviço principal</h3>
+        <p class="muted">Contrate nossos detetives especializados para investigar suspeitas de infidelidade. Atuamos para o cliente: monitoramos os possíveis acusados, coletamos provas técnicas (on-line e, quando necessário, presencialmente) e entregamos um relatório detalhado com evidências verificáveis.</p>
+        <strong>O que inclui</strong>
+        <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+          <li>Monitoramento discreto em redes sociais, aplicativos e perfis públicos;</li>
+          <li>Coleta de imagens, mensagens e padrões de comportamento;</li>
+          <li>Observação presencial, quando aplicável e dentro da legalidade;</li>
+          <li>Relatório com timeline, anexos e instruções para uso jurídico;</li>
+          <li>Atendimento confidencial e sob NDA se solicitado.</li>
+        </ul>
+
+        <p style="margin-top:10px;color:var(--muted)"><strong>Importante:</strong> atuamos sempre dentro da lei; não realizamos invasões de dispositivos ou acessos ilegais. Preservamos a integridade das provas para eventual uso jurídico.</p>
+      </div>
     </section>
 
     <!-- FEEDBACKS: SWIPER CAROUSEL -->
-    <section class="feedbacks-wrap" aria-label="Feedbacks">
+    <section id="feedbacks" class="feedbacks-wrap" aria-label="Feedbacks">
       <div class="feedbacks-header">
         <h2>Feedbacks Reais & Independentes</h2>
-        <div class="muted">Depoimentos verificados por terceiros</div>
+        <div class="muted">Depoimentos de clientes reais e empresas — anonimização aplicada onde necessário</div>
       </div>
 
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
+          <!-- Fraudes -->
           <div class="swiper-slide">
             <div class="feedback-card">
-              <p class="feedback-quote">"Contratamos a Nexus Intel para verificar um incidente envolvendo engenharia social. O relatório foi direto, técnico e extremamente útil para mitigar riscos internos."</p>
-              <div class="feedback-meta"><strong>— Daniel K. Moritz</strong>, Cyber Risk Manager <span class="muted">• Helvetia Global Security (Zurique) — Ago 2024</span></div>
-              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+              <p class="feedback-quote">"Fui vítima de um golpe sofisticado que desviou pagamentos da minha empresa. A Nexus Intel identificou o perfil do golpista, reuniu provas e nos entregou um relatório detalhado que usamos com o jurídico. Recuperamos parte do prejuízo." </p>
+              <div class="feedback-meta"><strong>— Ricardo Campos</strong>, Diretor Financeiro, <span class="muted">ABC Logistics — Mai 2024</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Fraudes & Golpes</span></div>
             </div>
           </div>
 
+          <!-- Localização -->
           <div class="swiper-slide">
             <div class="feedback-card">
-              <p class="feedback-quote">"A precisão na análise digital e a forma como consolidaram os dados nos surpreendeu. Atendimento profissional, ágil e totalmente confidencial."</p>
-              <div class="feedback-meta"><strong>— Sofia Karim</strong>, Analyst <span class="muted">• BlueTrace Solutions (Dubai) — Dez 2024</span></div>
-              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+              <p class="feedback-quote">"Procurávamos um familiar desaparecido e a equipe fez um trabalho técnico impressionante. Cruzaram dados públicos e nos apontaram um local provável; graças a isso conseguimos contatar a pessoa em segurança." </p>
+              <div class="feedback-meta"><strong>— Ana Torres</strong>, Familiar — <span class="muted">São Paulo — Jul 2024</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Localização</span></div>
             </div>
           </div>
 
+          <!-- Recuperação de contas -->
           <div class="swiper-slide">
             <div class="feedback-card">
-              <p class="feedback-quote">"Um serviço confiável para situações complexas. Comunicação clara e provas apresentadas com qualidade."</p>
-              <div class="feedback-meta"><strong>— Ethan Walker</strong>, Private Consultant <span class="muted">• StratPoint Advisors (Sydney) — Mar 2025</span></div>
-              <div style="margin-top:12px"><span class="feedback-badge">Verificado</span></div>
+              <p class="feedback-quote">"Minha conta do Instagram foi sequestrada por um invasor. A Nexus recuperou o acesso, reuniu as evidências de acesso indevido e me orientou sobre como proteger a conta. Serviço rápido e profissional."</p>
+              <div class="feedback-meta"><strong>— Lucas Pereira</strong>, Criador de Conteúdo — <span class="muted">Out 2024</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Recuperação de Contas</span></div>
             </div>
           </div>
+
+          <!-- Infidelidade - depoimento feminino -->
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"Descobri a traição porque não conseguia tirar a dúvida da cabeça. Contratei a Nexus e, com total discrição, eles monitoraram e trouxeram provas claras em poucos dias. Foi doloroso, mas necessário. Sou muito grata pelo profissionalismo." </p>
+              <div class="feedback-meta"><strong>— Marina Alves</strong> — <span class="muted">Janeiro 2025</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Investigação de Infidelidade</span></div>
+            </div>
+          </div>
+
+          <!-- Infidelidade - outro depoimento feminino -->
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"Pensei que fosse paranoia, mas precisava de confirmação. O relatório trouxe provas concretas e a equipe foi extremamente discreta. Recomendo para quem quer clareza antes de tomar decisões." </p>
+              <div class="feedback-meta"><strong>— Carla Mendes</strong> — <span class="muted">Mar 2025</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Investigação de Infidelidade</span></div>
+            </div>
+          </div>
+
+          <!-- Infidelidade - depoimento masculino (opcional) -->
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-quote">"Não sabia como agir; o serviço me trouxe respostas e um relatório que me permitiu conversar com calma sobre o futuro do relacionamento. Trabalho profissional e sem sensacionalismo."</p>
+              <div class="feedback-meta"><strong>— João Silva</strong> — <span class="muted">Abr 2025</span></div>
+              <div style="margin-top:12px"><span class="feedback-badge">Investigação de Infidelidade</span></div>
+            </div>
+          </div>
+
         </div>
 
         <div class="swiper-pagination"></div>
@@ -297,6 +391,7 @@
               <option>Localização Digital</option>
               <option>Infidelidade Digital</option>
               <option>Fraudes e Golpes</option>
+              <option>Recuperação de Contas</option>
               <option>Outro</option>
             </select>
           </label>
@@ -319,7 +414,7 @@
 
     <footer style="margin-top:28px;color:var(--muted)">
       <p style="margin:0">NEXUS INTEL — Inteligência & Investigação Digital</p>
-      <p style="margin:0">WhatsApp: +55 11 91307-6990 • contato@nexusintel.com</p>
+      <p style="margin:0">WhatsApp: +55 11 91307-6990 • suporte.intelnexus@gmail.com</p>
     </footer>
   </div>
 
@@ -327,7 +422,7 @@
   <div id="modalQuem" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center">
     <div style="width:94%;max-width:1000px;background:#071323;border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.08)">
       <button id="closeModal" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
-      <iframe src="/relatorio.html" style="width:100%;height:76vh;border:0;border-radius:8px;background:#0a1626;"></iframe>
+      <iframe id="iframeRel" src="" style="width:100%;height:76vh;border:0;border-radius:8px;background:#0a1626;"></iframe>
     </div>
   </div>
 
@@ -351,7 +446,7 @@
       <p class="muted">Adotamos medidas técnicas e organizacionais para proteger os dados contra acesso não autorizado.</p>
 
       <h3>5. Contato</h3>
-      <p class="muted">Para dúvidas ou solicitações referentes a dados pessoais, contate: <b>contato@nexusintel.com</b></p>
+      <p class="muted">Para dúvidas ou solicitações referentes a dados pessoais, contate: <b>suporte.intelnexus@gmail.com</b></p>
 
       <p class="muted" style="margin-top:12px;font-size:13px">Versão: demo • Atualizado: 2025</p>
     </div>
@@ -365,6 +460,7 @@
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
   <script>
+    // Swiper init
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 1,
       spaceBetween: 18,
@@ -375,26 +471,34 @@
       breakpoints: { 900: { slidesPerView: 2 } }
     });
 
+    // reports counter
     (function(){
       const el = document.getElementById('reportsCounter');
-      // Valor fixo/real: 128 (já definido)
       el.textContent = 128;
     })();
 
+    // Quem somos modal: ensure iframe loads relatorio.html when opening and clears when closing
     const btnOpen = document.getElementById('btnOpenQuem');
     const modal = document.getElementById('modalQuem');
     const btnClose = document.getElementById('closeModal');
+    const iframeRel = document.getElementById('iframeRel');
+
     btnOpen && btnOpen.addEventListener('click', ()=> {
-      modal.style.display = 'flex';
+      // ensure iframe src is set (force load)
+      if (iframeRel) iframeRel.src = '/relatorio.html';
+      if (modal) modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       window.gtag && window.gtag('event','open_quem_somos',{ 'event_category':'engagement' });
     });
+
     btnClose && btnClose.addEventListener('click', ()=> {
-      modal.style.display = 'none';
+      if (modal) modal.style.display = 'none';
+      // clear iframe to stop any media/scripts inside
+      if (iframeRel) iframeRel.src = 'about:blank';
       document.body.style.overflow = 'auto';
     });
 
-    // PRIVACY modal controls (added)
+    // PRIVACY modal controls
     const btnPrivacy = document.getElementById('btnPrivacy');
     const modalPrivacy = document.getElementById('modalPrivacy');
     const btnClosePrivacy = document.getElementById('closePrivacy');
@@ -409,6 +513,7 @@
       document.body.style.overflow = 'auto';
     });
 
+    // Form submit GA event
     const form = document.querySelector('form[name="initial-contact"]');
     if(form){
       form.addEventListener('submit', ()=> {
@@ -416,28 +521,33 @@
       });
     }
 
+    // Lazy load images (kept in case you add images with data-src)
     document.addEventListener('DOMContentLoaded',function(){
       const imgs = document.querySelectorAll('img[data-src]');
-      const obs = new IntersectionObserver((entries, o)=> {
-        entries.forEach(ent => {
-          if(ent.isIntersecting){
-            const i = ent.target; i.src = i.dataset.src; i.removeAttribute('data-src');
-            o.unobserve(i);
-          }
-        });
-      }, {rootMargin:'200px'});
-      imgs.forEach(img => obs.observe(img));
+      if ('IntersectionObserver' in window && imgs.length){
+        const obs = new IntersectionObserver((entries, o)=> {
+          entries.forEach(ent => {
+            if(ent.isIntersecting){
+              const i = ent.target; i.src = i.dataset.src; i.removeAttribute('data-src');
+              o.unobserve(i);
+            }
+          });
+        }, {rootMargin:'200px'});
+        imgs.forEach(img => obs.observe(img));
+      }
     });
 
+    // track clicks to WhatsApp
     document.querySelectorAll('a[href*="wa.me"]').forEach(a=> {
       a.addEventListener('click',()=> window.gtag && window.gtag('event','click_whatsapp',{ 'event_category':'cta' }));
     });
 
+    // Close modals on Esc
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape'){
         const modalQ = document.getElementById('modalQuem');
         const modalP = document.getElementById('modalPrivacy');
-        if(modalQ && modalQ.style.display === 'flex'){ modalQ.style.display = 'none'; document.body.style.overflow = 'auto'; }
+        if(modalQ && modalQ.style.display === 'flex'){ modalQ.style.display = 'none'; if (iframeRel) iframeRel.src = 'about:blank'; document.body.style.overflow = 'auto'; }
         if(modalP && modalP.style.display === 'flex'){ modalP.style.display = 'none'; document.body.style.overflow = 'auto'; }
       }
     });
@@ -445,6 +555,8 @@
 
 </body>
 </html>
+
+
 
 
 
