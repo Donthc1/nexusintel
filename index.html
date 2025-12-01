@@ -3,39 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>NEXUS INTEL — Unidade de Operações Digitais & Inteligência Investigativa</title>
-  <meta name="description" content="NEXUS INTEL — Investigação digital profissional: OSINT, forense, localização, fraudes. Atendimento sigiloso.">
+
+  <!-- TITLE otimizado -->
+  <title>NEXUS INTEL — Investigação Digital | OSINT • Forense • Localização</title>
+
+  <meta name="description" content="NEXUS INTEL — Investigação digital profissional: OSINT, análise forense, localização e recuperação de contas. Atendimento sigiloso e relatórios técnicos." />
   <meta name="theme-color" content="#071323" />
 
+  <!-- Fonts & swiper -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
 
-  <!-- Favicons -->
+  <!-- Favicons (mantive referências relativas) -->
   <link rel="icon" href="/favicon.ico?v=8">
   <link rel="apple-touch-icon" href="/favicon-256.png?v=8">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=8">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=8">
 
+  <!-- OG placeholders: serão atualizados dinamicamente para refletir o domínio atual -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="NEXUS INTEL — Investigação Digital Profissional" />
-  <meta property="og:description" content="Investigação digital, OSINT, localização and relatórios técnicos — Atendimento sigiloso." />
+  <meta property="og:description" content="Investigação digital, OSINT, localização e relatórios técnicos — Atendimento sigiloso." />
   <meta property="og:image" content="/og-image.png" />
 
+  <!-- canonical dinâmico (evita apontar para Netlify/URL errada) -->
+  <link rel="canonical" href="" id="canonicalLink">
+
+  <!-- JSON-LD simplificado (sem URL fixo) -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"NEXUS INTEL",
-    "image":["https://nexusintel-sec.netlify.app/og-image.png"],
-    "@id":"https://nexusintel-sec.netlify.app",
-    "url":"https://nexusintel-sec.netlify.app",
-    "telephone":"+5511913076990",
-    "description":"NEXUS INTEL – investigação digital, OSINT, forense e localização. Atendimento sigiloso.",
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "NEXUS INTEL",
+    "telephone": "+5511913076990",
+    "description": "NEXUS INTEL – investigação digital, OSINT, forense e localização. Atendimento sigiloso.",
     "address": {
       "@type":"PostalAddress",
-      "streetAddress":"Virtual HQ",
       "addressLocality":"São Paulo",
       "addressCountry":"BR"
     },
@@ -43,23 +48,7 @@
       "@type":"AggregateRating",
       "ratingValue":"4.8",
       "reviewCount":"128"
-    },
-    "review": [
-      {
-        "@type":"Review",
-        "author":{"@type":"Person","name":"Daniel K. Moritz"},
-        "datePublished":"2024-08-24",
-        "reviewBody":"Contratamos a Nexus Intel para verificar um incidente envolvendo engenharia social. O relatório foi direto, técnico e extremamente útil.",
-        "reviewRating":{"@type":"Rating","ratingValue":"5"}
-      },
-      {
-        "@type":"Review",
-        "author":{"@type":"Person","name":"Sofia Karim"},
-        "datePublished":"2024-12-02",
-        "reviewBody":"A precisão na análise digital e a forma como consolidaram os dados nos surpreendeu. Atendimento profissional.",
-        "reviewRating":{"@type":"Rating","ratingValue":"5"}
-      }
-    ]
+    }
   }
   </script>
 
@@ -90,7 +79,8 @@
       background:linear-gradient(135deg,var(--accent),var(--accent2));
       color:#042a31;font-weight:900;font-size:20px;box-shadow:var(--neon)
     }
-    h1.site-name{margin:0;font-weight:600;font-size:18px}
+    /* Ajuste para site-name não estourar em telas pequenas */
+    h1.site-name{margin:0;font-weight:700;font-size:18px;max-width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     p.site-desc{margin:0;color:var(--muted);font-size:13px}
 
     /* header nav */
@@ -173,9 +163,17 @@
       select, select option { color: var(--white); }
     }
     select:focus{ box-shadow: 0 4px 20px rgba(14,160,214,0.12); border-color:var(--accent) }
+
+    /* Responsive tweaks */
+    @media(max-width:920px){
+      header{flex-direction:column;align-items:flex-start;gap:14px}
+      .nav{order:2;margin-left:0}
+      .header-actions{order:1}
+      h1.site-name{max-width:320px}
+    }
   </style>
 
-  <!-- GA placeholder (replace or remove) -->
+  <!-- GA placeholder (substitua pelo seu GA4 real) -->
   <script>
     (function(){
       window.dataLayer = window.dataLayer || [];
@@ -196,7 +194,7 @@
         <div class="brand">
           <div class="logo">NI</div>
           <div style="margin-left:12px">
-            <h1 class="site-name">NEXUS INTEL</h1>
+            <h1 class="site-name" title="NEXUS INTEL — Unidade de Operações Digitais & Inteligência Investigativa">NEXUS INTEL</h1>
             <p class="site-desc">Unidade de Operações Digitais & Inteligência Investigativa</p>
           </div>
         </div>
@@ -212,7 +210,6 @@
       <div class="header-actions">
         <a class="btn btn-ghost" href="mailto:suporte.intelnexus@gmail.com">suporte.intelnexus@gmail.com</a>
         <a class="btn btn-dark" href="https://wa.me/5511913076990?text=Ol%C3%A1%2C%20quero%20prioridade%20imediata">WhatsApp</a>
-        <!-- Privacy button already present earlier -->
         <button class="btn btn-ghost" id="btnPrivacy" aria-haspopup="dialog" aria-controls="modalPrivacy">Política de Privacidade</button>
       </div>
     </header>
@@ -367,7 +364,7 @@
       </div>
     </section>
 
-    <!-- Quick stats + form sample (Netlify Forms ready) -->
+    <!-- Quick stats + form sample -->
     <section style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
       <div style="flex:1;min-width:320px;background:rgba(255,255,255,0.02);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)">
         <h4 style="margin-top:0">Números</h4>
@@ -418,7 +415,7 @@
     </footer>
   </div>
 
-  <!-- Modal Quem Somos (loads relatorio.html in iframe) -->
+  <!-- Modal Quem Somos (iframe loads relatorio.html relatively) -->
   <div id="modalQuem" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:9999;align-items:center;justify-content:center">
     <div style="width:94%;max-width:1000px;background:#071323;border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.08)">
       <button id="closeModal" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
@@ -426,28 +423,22 @@
     </div>
   </div>
 
-  <!-- ADDED: Privacy Policy Modal -->
+  <!-- Privacy modal -->
   <div id="modalPrivacy" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:10000;align-items:center;justify-content:center">
     <div style="width:94%;max-width:900px;background:#071323;border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.08);color:var(--white);max-height:90vh;overflow:auto;">
       <button id="closePrivacy" style="float:right;background:transparent;border:none;color:var(--muted);font-size:20px;cursor:pointer">✕</button>
       <h2 style="margin-top:6px;">Política de Privacidade — NEXUS INTEL</h2>
       <p class="muted">Esta é uma versão demonstrativa da política de privacidade. Substitua pelo texto oficial quando disponível.</p>
-
       <h3>1. Informações que coletamos</h3>
       <p class="muted">Coletamos apenas as informações que você fornece voluntariamente via formulário de contato (nome, telefone, email, descrição do caso e arquivos anexados).</p>
-
       <h3>2. Uso das informações</h3>
       <p class="muted">As informações são utilizadas exclusivamente para analisar o caso, entrar em contato com o solicitante e produzir relatórios técnicos. Não vendemos ou compartilhamos dados com terceiros sem consentimento, salvo por exigência legal.</p>
-
       <h3>3. Retenção</h3>
       <p class="muted">Os dados são mantidos pelo período necessário para prestar o serviço e cumprir obrigações legais.</p>
-
       <h3>4. Segurança</h3>
       <p class="muted">Adotamos medidas técnicas e organizacionais para proteger os dados contra acesso não autorizado.</p>
-
       <h3>5. Contato</h3>
       <p class="muted">Para dúvidas ou solicitações referentes a dados pessoais, contate: <b>suporte.intelnexus@gmail.com</b></p>
-
       <p class="muted" style="margin-top:12px;font-size:13px">Versão: demo • Atualizado: 2025</p>
     </div>
   </div>
@@ -460,6 +451,21 @@
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
 
   <script>
+    // atualiza canonical e og:url dinamicamente para evitar referências a Netlify
+    (function(){
+      try {
+        var canonical = document.getElementById('canonicalLink');
+        if(canonical){
+          canonical.href = window.location.href;
+        }
+        var ogUrl = document.querySelector('meta[property="og:url"]');
+        if(!ogUrl){
+          ogUrl = document.createElement('meta'); ogUrl.setAttribute('property','og:url'); document.head.appendChild(ogUrl);
+        }
+        ogUrl.setAttribute('content', window.location.href);
+      } catch(e){ console.warn('canonical set failed', e) }
+    })();
+
     // Swiper init
     const swiper = new Swiper('.mySwiper', {
       slidesPerView: 1,
@@ -477,15 +483,15 @@
       el.textContent = 128;
     })();
 
-    // Quem somos modal: ensure iframe loads relatorio.html when opening and clears when closing
+    // Quem somos modal: load relatorio.html relatively (no leading slash)
     const btnOpen = document.getElementById('btnOpenQuem');
     const modal = document.getElementById('modalQuem');
     const btnClose = document.getElementById('closeModal');
     const iframeRel = document.getElementById('iframeRel');
 
     btnOpen && btnOpen.addEventListener('click', ()=> {
-      // ensure iframe src is set (force load)
-      if (iframeRel) iframeRel.src = '/relatorio.html';
+      // NOTE: use relative path 'relatorio.html' (must exist at same root of site)
+      if (iframeRel) iframeRel.src = 'relatorio.html';
       if (modal) modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       window.gtag && window.gtag('event','open_quem_somos',{ 'event_category':'engagement' });
@@ -493,7 +499,6 @@
 
     btnClose && btnClose.addEventListener('click', ()=> {
       if (modal) modal.style.display = 'none';
-      // clear iframe to stop any media/scripts inside
       if (iframeRel) iframeRel.src = 'about:blank';
       document.body.style.overflow = 'auto';
     });
@@ -555,6 +560,7 @@
 
 </body>
 </html>
+
 
 
 
